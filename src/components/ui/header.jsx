@@ -1,6 +1,9 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
+import Image from 'next/image'
+import Link from 'next/link'
+import mylogo from '../../../public/logo-2.png'
 
 const user = {
   name: 'Tom Cook',
@@ -17,9 +20,9 @@ const navigation = [
 ]
 
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Your Profile', href: DASHBOARD_PAGES.PROFILE },
+  { name: 'Settings', href: DASHBOARD_PAGES.SETTINGS },
+  { name: 'Sign out', href: DASHBOARD_PAGES.SIGNOUT },
 ]
 
 function classNames(...classes) {
@@ -32,19 +35,21 @@ export default function Header() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="flex h-16 items-center justify-between">
         <div className="flex items-center">
-          <div className="mr-6">
-            <img
-              alt="Your Company"
-              src="logo-2.png"
-              style={{width: "130px"}}
-            />
-          </div>
+        <Image
+          alt="AUTOSTOP"
+          src={mylogo}
+          draggable={false}
+          style={{
+            width: '130px',
+            userSelect: 'none'
+          }}
+        />
         </div>
   
         <div className="flex-grow hidden md:flex justify-center">
           <div className="flex items-baseline space-x-4">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 aria-current={item.current ? 'page' : undefined}
@@ -56,7 +61,7 @@ export default function Header() {
                 )}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
