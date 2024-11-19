@@ -35,8 +35,8 @@ export default function Header() {
           <div className="mr-6">
             <img
               alt="Your Company"
-              src="logo2.png"
-              className="w-10"
+              src="logo-2.png"
+              style={{width: "130px"}}
             />
           </div>
         </div>
@@ -72,7 +72,6 @@ export default function Header() {
               <BellIcon aria-hidden="true" className="size-6" />
             </button>
   
-            {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>
                 <MenuButton className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
