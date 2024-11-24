@@ -18,6 +18,7 @@ export default function NotFound () {
 
     // Очистка текста и разделение на символы
     pElement.innerHTML = "";
+    pElement.style.visibility = "visible"
     chars.forEach((char) => {
       const span = document.createElement("span");
       span.textContent = char;
@@ -80,7 +81,7 @@ export default function NotFound () {
     <div className="fixed inset-0 bg-black font-mono z-50 flex items-center justify-center">
       <div className="flex flex-col">
         <div ref={containerRef} className="copy-container text-center relative">
-          <p className="text-white text-2xl md:text-4xl">404, page not found.</p>
+          <p className="text-white text-2xl md:text-4xl" style={{visibility: "hidden"}}>404, page not found.</p>
           <span
             ref={handleRef}
             className="handle absolute bg-yellow-400 w-3.5 h-7 top-0 left-0 mt-1"

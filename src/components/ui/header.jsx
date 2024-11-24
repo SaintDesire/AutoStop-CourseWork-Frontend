@@ -65,7 +65,10 @@ export default function Header() {
             ))}
           </div>
         </div>
-  
+        
+        <Link href={DASHBOARD_PAGES.LOGIN} style={{color: "white", marginRight: 15}}>LOGIN</Link><br/>
+        <Link href={DASHBOARD_PAGES.SIGNUP} style={{color: "white"}}>SIGNUP</Link>
+        
         <div className="hidden md:block">
           <div className="flex items-center">
             <button

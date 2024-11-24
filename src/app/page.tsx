@@ -6,8 +6,6 @@ export default function Home() {
   return (
     <div>
       <h1>HOME PAGE</h1>
-      <Link href={DASHBOARD_PAGES.LOGIN}>LOGIN</Link><br/>
-      <Link href={DASHBOARD_PAGES.SIGNUP}>SIGNUP</Link>
     </div>
   );
 }
