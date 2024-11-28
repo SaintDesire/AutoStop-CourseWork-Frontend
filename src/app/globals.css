@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('../styles/modal.css');
+@import url('../styles/carCard.css');
+@import url('../styles/carList.css');
+
 * {
   margin: 0;
   padding: 0;

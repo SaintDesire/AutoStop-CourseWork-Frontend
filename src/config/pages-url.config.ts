@@ -7,8 +7,8 @@ class DASHBOARD {
     MARKETPLACE = `${this.root}/marketplace`
     ABOUT = `${this.root}/about`
     CONTACT = `${this.root}/contact`
-    LOGIN = `${this.root}/auth/login`
-    SIGNUP = `${this.root}/auth/signup`
+    LOGIN = `${this.root}/login`
+    SIGNUP = `${this.root}/signup`
     SIGNOUT = `${this.root}/signout`
     RESET_PASSWORD = `${this.root}/reset-password`
     PROFILE = `${this.root}/profile`

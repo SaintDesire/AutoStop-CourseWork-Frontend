@@ -1,0 +1,10 @@
+.cars-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.car-element {
+    width: auto;
+}

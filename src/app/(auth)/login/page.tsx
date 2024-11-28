@@ -16,7 +16,7 @@ const Login = () => {
   };
 
   return (
-      <div className="w-full max-w-md p-8 bg-white rounded-md shadow-md justify-center">
+      <div className="w-full max-w-md p-8 bg-white rounded-md shadow-md justify-center login-window">
         <h2 className="text-3xl font-bold text-center mb-6">Вход в систему</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -31,6 +31,7 @@ const Login = () => {
           </div>
           <div className="mb-6">
             <label className="block text-gray-700 mb-2">Пароль:</label>
+          
             <input
               type="password"
               value={password}

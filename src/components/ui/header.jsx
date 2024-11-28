@@ -1,6 +1,8 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
+import Modal from './modalAuth'
+import openModal from '../../services/openModal'
 import Image from 'next/image'
 import Link from 'next/link'
 import mylogo from '../../../public/logo-2.png'
@@ -27,6 +29,10 @@ const userNavigation = [
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
+}
+
+function changeActive() {
+  //сделать смену цвета активной страницы в header
 }
 
 export default function Header() {
@@ -66,10 +72,13 @@ export default function Header() {
           </div>
         </div>
         
-        <Link href={DASHBOARD_PAGES.LOGIN} style={{color: "white", marginRight: 15}}>LOGIN</Link><br/>
-        <Link href={DASHBOARD_PAGES.SIGNUP} style={{color: "white"}}>SIGNUP</Link>
+        <button style={{color: "white"}} onClick={openModal}>Login</button>
+        <Modal/>
+        {/* <Link href={DASHBOARD_PAGES.LOGIN} style={{color: "white", marginRight: 15}}>LOGIN</Link><br/>
+        <Link href={DASHBOARD_PAGES.SIGNUP} style={{color: "white"}}>SIGNUP</Link> */}
         
         <div className="hidden md:block">
+          
           <div className="flex items-center">
             <button
               type="button"

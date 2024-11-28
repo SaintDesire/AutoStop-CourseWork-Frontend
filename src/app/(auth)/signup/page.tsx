@@ -21,7 +21,7 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-8 bg-white rounded-md shadow-md justify-center">
+    <div className="w-full max-w-md p-8 bg-white rounded-md shadow-md justify-center signup-window">
       <h2 className="text-3xl font-bold text-center mb-6">Регистрация</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
