@@ -12,7 +12,7 @@ class DASHBOARD {
     SIGNOUT = `${this.root}/signout`
     RESET_PASSWORD = `${this.root}/reset-password`
     PROFILE = `${this.root}/profile`
-    SETTINGS = `${this.root}/settings`
+    SETTINGS = `${this.PROFILE}/settings`
 }
 
 export const DASHBOARD_PAGES = new DASHBOARD()
