@@ -18,18 +18,20 @@ const user = {
 };
 
 const initialNavigation = [
-  { name: "Home", href: DASHBOARD_PAGES.HOME, current: true },
-  { name: "Cars", href: DASHBOARD_PAGES.CARLIST, current: false },
-  { name: "Marketplace", href: DASHBOARD_PAGES.MARKETPLACE, current: false },
-  { name: "About", href: DASHBOARD_PAGES.ABOUT, current: false },
-  { name: "Contact", href: DASHBOARD_PAGES.CONTACT, current: false },
+  { name: "Главная", href: DASHBOARD_PAGES.HOME, current: true },
+  { name: "Каталог", href: DASHBOARD_PAGES.CARLIST, current: false },
+  { name: "Маркет", href: DASHBOARD_PAGES.MARKETPLACE, current: false },
+  { name: "О нас", href: DASHBOARD_PAGES.ABOUT, current: false },
+  { name: "Контакты", href: DASHBOARD_PAGES.CONTACT, current: false },
 ];
 
 const userNavigation = [
-  { name: "Your Profile", href: DASHBOARD_PAGES.PROFILE },
-  { name: "Settings", href: DASHBOARD_PAGES.SETTINGS },
-  { name: "Sign out", href: DASHBOARD_PAGES.SIGNOUT },
+  { name: "Профиль", href: DASHBOARD_PAGES.PROFILE },
+  { name: "Настройки", href: DASHBOARD_PAGES.SETTINGS },
+  { name: "Выйти из аккаунта", href: DASHBOARD_PAGES.SIGNOUT },
 ];
+
+const loginButton = "Войти"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -85,8 +87,8 @@ export default function Header() {
             </div>
           </div>
 
-          <button style={{ color: "white" }} onClick={openModal}>
-            Login
+          <button className="login-button" onClick={openModal}>
+            {loginButton}
           </button>
           <Modal />
 

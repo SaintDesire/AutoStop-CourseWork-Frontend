@@ -6,6 +6,7 @@
 @import url('../styles/cars/carCard.css');
 @import url('../styles/cars/carList.css');
 @import url('../styles/cars/carPage.css');
+@import url('../styles/header/header.css');
 
 * {
   margin: 0;
