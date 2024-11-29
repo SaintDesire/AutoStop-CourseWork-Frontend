@@ -3,8 +3,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin: 0px 10px 50px 10px;
 }
 
 .car-element {
     width: auto;
+}
+
+.cars-title {
+    text-align: center;
+    margin: 30px;
+    font-size: large;
+    font-weight: bold;
 }

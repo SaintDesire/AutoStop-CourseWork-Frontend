@@ -1,0 +1,107 @@
+.car-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .car-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .car-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .car-subtitle {
+    color: #666;
+    font-size: 1rem;
+  }
+  
+  .car-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .car-image-section {
+    width: 60%;
+  }
+  
+  .main-car-image {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .car-thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .car-thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .car-details-section {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .car-info p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .car-price {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .price-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .contact-btn {
+    background-color: #e63946;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  .contact-btn:hover {
+    background-color: #d62828;
+  }
+  
+  .car-description {
+    margin-top: 30px;
+  }
+  
+  .car-description h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .car-description p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  

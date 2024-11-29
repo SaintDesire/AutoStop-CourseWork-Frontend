@@ -1,3 +1,6 @@
+import Link from "next/link"
+import { DASHBOARD_PAGES } from "@/config/pages-url.config"
+
 export default function Footer() {
     return (
     <footer className="bg-gray-800 text-gray-300">
@@ -16,16 +19,19 @@ export default function Footer() {
         <h3 className="text-lg font-bold text-white mb-4">Полезные ссылки</h3>
         <ul className="space-y-2">
           <li>
-            <a href="/cars" className="hover:text-white">Автомобили</a>
+            <Link href={DASHBOARD_PAGES.CARLIST}>
+              Автомобили
+            </Link>
           </li>
           <li>
-            <a href="/reviews" className="hover:text-white">Обзоры</a>
+            <Link href={DASHBOARD_PAGES.MARKETPLACE}>
+              Объявления
+            </Link>
           </li>
           <li>
-            <a href="/marketplace" className="hover:text-white">Объявления</a>
-          </li>
-          <li>
-            <a href="/contact" className="hover:text-white">Контакты</a>
+            <Link href={DASHBOARD_PAGES.CONTACT}>
+              Контакты
+            </Link>
           </li>
         </ul>
       </div>

@@ -15,8 +15,8 @@ const CarsPage: React.FC<CarsPageProps> = ({ cars }) => {
             <h1 className="cars-title">Каталог автомобилей</h1>
             <div className="cars-grid">
                 {cars.map((car) => (
-                    <Link href={`${DASHBOARD_PAGES.CAR}/${car.id}`} className="car-element">
-                        <CarCard key={car.id} car={car} />
+                    <Link href={`${DASHBOARD_PAGES.CAR}/${car.id}`} className="car-element" key={car.id}>
+                        <CarCard car={car} />
                     </Link>
                 ))}
             </div>
