@@ -8,7 +8,7 @@ import openModal from "../../services/openModal";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import mylogo from "../../../public/logo-2.png";
+import mylogo from "../../../public/logo-3.png";
 
 const user = {
   name: "Tom Cook",
@@ -52,7 +52,7 @@ export default function Header() {
   };
 
   return (
-    <Disclosure as="nav" className="bg-gray-800 header-nav">
+    <Disclosure as="nav" className="header-nav">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">

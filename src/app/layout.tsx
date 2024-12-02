@@ -15,14 +15,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="h-full bg-gray-100">
-      <body className={`h-full`}>
+    <html >
+      <body>
         <div className="wrapper">
-          <div className="content">
+          <div className="content gradient-bg">
             <Header/>
             {children}
           </div>
-          <div className="footer">
+          <div>
             <Footer/>
           </div>
         </div>
