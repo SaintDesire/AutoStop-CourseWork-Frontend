@@ -1,12 +1,12 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+// next.config.ts
+const nextConfig = {
+  reactStrictMode: true,  // Включение строгого режима React
+  experimental: {
+    appDir: true,         // Использование экспериментальной структуры с папкой `app`
+  },
+  images: {
+    domains: ['placehold.co'],
+  },
 };
-
-module.exports = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
 
 export default nextConfig;

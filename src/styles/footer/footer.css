@@ -1,18 +1,67 @@
-/* footer сделать прозрачным */
-footer {
-  position: relative;
-  z-index: 2;
-  padding: 20px 0;
-  background: transparent;
+.footer-text-color {
+  color: black; /* Основной цвет текста */
 }
 
+.footer-text-color .section-title {
+  color: black; /* Заголовки должны быть белыми */
+}
 
+.footer-text-color .section-description {
+  color: inherit; /* Оставляем цвет по умолчанию, если нужно */
+}
 
-  
-  .gradient-bg {
-    background: linear-gradient(to bottom, transparent 60%, rgba(255, 0, 0, 0.9) 100%);
-    min-height: 100vh;
-    background-size: cover;
-    background-attachment: fixed;
+.footer-text-color .social-link {
+  color: #9ca3af;
+}
+
+.footer-text-color .social-link:hover {
+  color: #fff; /* Цвет текста при наведении */
+}
+
+.footer-container {
+  max-width: 7xl;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media(min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.section-description {
+  font-size: 0.875rem;
+}
+
+.link-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-bottom {
+  margin-top: 32px;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 0.875rem;
+}

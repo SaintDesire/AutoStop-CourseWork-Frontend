@@ -12,6 +12,7 @@ class DASHBOARD {
     SIGNOUT = `${this.root}/signout`
     RESET_PASSWORD = `${this.root}/reset-password`
     PROFILE = `${this.root}/profile`
+    PROFILE_ADS = `${this.PROFILE}/ads`
     SETTINGS = `${this.PROFILE}/settings`
 }
 
