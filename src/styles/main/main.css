@@ -1,0 +1,20 @@
+.fast-and-easy {
+    color: yellow;
+}
+
+.parallelogram {
+    position: absolute;
+    top: 0px;
+    right: 350px;
+    width: 600px;
+    height: 600px;
+    background: #E0D7EB;    
+    transform: skewX(-30deg);
+    z-index: 1;
+  }
+  
+  .parallelogram-сar {
+    position: absolute;
+    top: 105px;
+    right: 440px;
+  }

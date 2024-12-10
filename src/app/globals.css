@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('../styles/auth/modal.css');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('../styles/cars/carCard.css');
 @import url('../styles/cars/carList.css');
 @import url('../styles/cars/carPage.css');
 @import url('../styles/header/header.css');
 @import url('../styles/footer/footer.css');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,700;1,700&display=swap');
+@import url('../styles/main/main.css');
+@import url('../styles/auth/login.css');
 
 
 * {
@@ -16,19 +17,18 @@
   padding: 0;
   border: 0;
   border-radius: 0;
+  z-index: 2;
 }
 html,
 body {
-  height: 100%;
-  color: black;
+  color: white;
   background: #0E0C15;
-}
-.wrapper {
+  height: 2000px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background: none;
+  min-height: 100vh;
 }
-.content {
-  flex: 1 0 auto;
+
+body article {
+  flex-grow: 1;
 }

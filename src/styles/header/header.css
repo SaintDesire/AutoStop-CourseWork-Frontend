@@ -1,12 +1,14 @@
 /* styles.css */
 .header-nav {
-  background-color: #0E0C15;
+  position: relative;
+  background-color: rgba(14, 12, 21, 0.25);
+  backdrop-filter: blur(10px);
   width: 60%;
   margin: 15px auto;
   padding: 5px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-
+  z-index: 2;
 }
 
 .container {
@@ -56,10 +58,13 @@
 }
 
 .nav-link {
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 500;
   padding: 8px 12px;
   border-radius: 8px;
+  font-family: var(--font-sourceCodePro);
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .nav-link.active {
@@ -77,13 +82,14 @@
 }
 
 .login-button {
-  padding: 8px 16px;
-  border: 1px solid transparent; /* Прозрачная рамка */
-  border-image: linear-gradient(to right, #090EDB 29%, #8D1EA2 100%); /* Градиент для рамки */
-  border-image-slice: 1; /* Применение градиента к рамке */
-  border-radius: 10px; /* Закругленные углы */
-  
-  color: #ffffff;
+  background-color: #CAD1E9;
+  color: #1A237E;
+  font-family: var(--font-sourceCodePro);
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  padding: 10px 20px;
+  border-radius: 12px;
 }
 
 .user-actions {

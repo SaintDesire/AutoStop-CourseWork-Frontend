@@ -1,9 +1,9 @@
 .footer-text-color {
-  color: black; /* Основной цвет текста */
+  color: white; /* Основной цвет текста */
 }
 
 .footer-text-color .section-title {
-  color: black; /* Заголовки должны быть белыми */
+  color: white; /* Заголовки должны быть белыми */
 }
 
 .footer-text-color .section-description {

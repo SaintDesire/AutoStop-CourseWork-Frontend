@@ -3,8 +3,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { DASHBOARD_PAGES } from "@/config/pages-url.config";
-import Modal from "./modalAuth";
-import openModal from "../../services/openModal";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -19,24 +17,20 @@ const user = {
 
 // Исправить проблему с обновлением страницы и изменением цвета кнопки текущей страницы
 const initialNavigation = [
-  { name: "Главная", href: DASHBOARD_PAGES.HOME, current: true },
-  { name: "Каталог", href: DASHBOARD_PAGES.CARLIST, current: false },
-  { name: "Маркет", href: DASHBOARD_PAGES.MARKETPLACE, current: false },
-  { name: "О нас", href: DASHBOARD_PAGES.ABOUT, current: false },
-  { name: "Контакты", href: DASHBOARD_PAGES.CONTACT, current: false },
+  { name: "Home", href: DASHBOARD_PAGES.HOME, current: true },
+  { name: "Catalog", href: DASHBOARD_PAGES.CARLIST, current: false },
+  { name: "Market", href: DASHBOARD_PAGES.MARKETPLACE, current: false },
+  { name: "About", href: DASHBOARD_PAGES.ABOUT, current: false },
+  { name: "Contact", href: DASHBOARD_PAGES.CONTACT, current: false },
 ];
 
 const userNavigation = [
-  { name: "Профиль", href: DASHBOARD_PAGES.PROFILE },
-  { name: "Настройки", href: DASHBOARD_PAGES.SETTINGS },
-  { name: "Выйти из аккаунта", href: DASHBOARD_PAGES.SIGNOUT },
+  { name: "Profile", href: DASHBOARD_PAGES.PROFILE },
+  { name: "Settings", href: DASHBOARD_PAGES.SETTINGS },
+  { name: "Logout", href: DASHBOARD_PAGES.SIGNOUT },
 ];
 
-const loginButton = "Войти"
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+const loginButton = "Sign In"
 
 export default function Header() {
   const [navigation, setNavigation] = useState(initialNavigation);
@@ -63,8 +57,7 @@ export default function Header() {
           draggable={false}
         />
           <span className="logo-text">
-            <span className="logo-auto">Auto</span>
-            <span className="logo-stop">Stop</span>
+            AutoStop
           </span>
         </div>
 
@@ -85,57 +78,12 @@ export default function Header() {
             </div>
           </div>
 
-          <button className="login-button" onClick={openModal}>
-            {loginButton}
-          </button>
-          <Modal />
-
-          <div className="user-actions">
-            <button
-              type="button"
-              className="notification-button"
-            >
-              <span className="sr-only">View notifications</span>
-              <BellIcon aria-hidden="true" className="bell-icon" />
-            </button>
-
-            <Menu as="div" className="user-menu">
-              <div>
-                <MenuButton className="user-menu-button">
-                  <span className="sr-only">Open user menu</span>
-                  <img alt="" src={user.imageUrl} className="user-avatar" />
-                </MenuButton>
-              </div>
-              <MenuItems className="user-menu-items">
-                {userNavigation.map((item) => (
-                  <MenuItem key={item.name}>
-                    <a href={item.href} className="user-menu-link">
-                      {item.name}
-                    </a>
-                  </MenuItem>
-                ))}
-              </MenuItems>
-            </Menu>
-          </div>
+          <Link href={DASHBOARD_PAGES.LOGIN} className="login-button">
+              {loginButton}
+          </Link>
 
         </div>
       </div>
-
-      <DisclosurePanel className="mobile-nav">
-        <div className="mobile-nav-list">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={`mobile-nav-link ${item.current ? 'active' : 'inactive'}`}
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
-        </div>
-      </DisclosurePanel>
     </Disclosure>
   );
   }

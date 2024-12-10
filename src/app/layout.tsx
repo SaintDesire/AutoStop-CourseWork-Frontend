@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
+import { Source_Code_Pro } from 'next/font/google'
 import "./globals.css";
 import Header from '../components/ui/header'
 import Footer from '../components/ui/footer'
 
+const sourceCodePro = Source_Code_Pro({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sourceCodePro',
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900']
+})
 
 export const metadata: Metadata = {
   title: "AUTOSTOP Главная страница",
@@ -15,17 +22,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html >
+    <html className={`${sourceCodePro.className}`}>
       <body>
-        <div className="wrapper">
-          <div className="content gradient-bg">
+          <header>
             <Header/>
+          </header>
+          <article>
             {children}
-          </div>
-          <div>
+          </article>
+          <footer>
             <Footer/>
-          </div>
-        </div>
+          </footer>
+          
       </body>
     </html>
   );
