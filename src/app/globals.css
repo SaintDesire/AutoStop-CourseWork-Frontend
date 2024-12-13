@@ -9,6 +9,7 @@
 @import url('../styles/header/header.css');
 @import url('../styles/footer/footer.css');
 @import url('../styles/main/main.css');
+@import url('../styles/main/text.css');
 @import url('../styles/auth/login.css');
 
 
@@ -17,13 +18,11 @@
   padding: 0;
   border: 0;
   border-radius: 0;
-  z-index: 2;
 }
 html,
 body {
   color: white;
   background: #0E0C15;
-  height: 2000px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -31,4 +30,12 @@ body {
 
 body article {
   flex-grow: 1;
+}
+
+
+.dm-sans {
+  font-family: var(--font-dmSans);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }

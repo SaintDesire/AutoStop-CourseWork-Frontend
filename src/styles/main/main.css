@@ -3,18 +3,20 @@
 }
 
 .parallelogram {
-    position: absolute;
-    top: 0px;
-    right: 350px;
-    width: 600px;
-    height: 600px;
-    background: #E0D7EB;    
-    transform: skewX(-30deg);
-    z-index: 1;
-  }
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 600px;
+  height: 600px;
+  background: #e0d7eb;
+  transform: skewX(-30deg);
+  z-index: 0;
+}
+
   
-  .parallelogram-сar {
-    position: absolute;
-    top: 105px;
-    right: 440px;
-  }
+.parallelogram-car {
+  position: absolute;
+  top: 105px;
+  right: 90px;
+  z-index: 2;
+}

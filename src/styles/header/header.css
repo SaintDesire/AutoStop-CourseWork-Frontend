@@ -3,7 +3,7 @@
   position: relative;
   background-color: rgba(14, 12, 21, 0.25);
   backdrop-filter: blur(10px);
-  width: 60%;
+  width: 1000px;
   margin: 15px auto;
   padding: 5px;
   border-radius: 12px;
@@ -30,8 +30,7 @@
 }
 
 .logo-text {
-  
-  font-family: "Source Code Pro", monospace;
+  font-family: var(--font-sourceCodePro);
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -39,13 +38,6 @@
   font-weight: 600; /* Вес шрифта */
 }
 
-.logo-auto {
-  color: #CAD1E9; /* Цвет для "Auto", например, зелёный */
-}
-
-.logo-stop {
-  color: #CAD1E9; /* Цвет для "Stop", например, оранжевый */
-}
 .nav-links {
   display: flex;
   justify-content: center;

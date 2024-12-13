@@ -1,0 +1,78 @@
+.box {
+    height: 187px;
+    position: relative;
+    width: 425px;
+  }
+  
+  .box .group {
+    height: 187px;
+    width: 427px;
+    margin-top: 125px;
+  }
+  
+  .box .text-wrapper {
+    color: #ffffff;
+    font-family: "DM Sans-Bold", Helvetica;
+    font-size: 70px;
+    font-weight: 700;
+    height: 70px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 70px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .box .info-container {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 32px;
+    left: 96px;
+    position: absolute;
+    top: 132px;
+  }
+  
+  .box .div {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .box .text-wrapper-2 {
+    color: #cad1e9;
+    font-family: "SF Pro Display-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 44px;
+    margin-top: -1.00px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .box .text-wrapper-3 {
+    color: #cad1e9;
+    font-family: "SF Pro Display-Medium", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 25px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .box .line {
+    height: 55px;
+    object-fit: cover;
+    position: relative;
+    width: 1px;
+  }
+  

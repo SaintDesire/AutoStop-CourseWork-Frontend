@@ -1,60 +1,50 @@
 import Link from "next/link";
+import Image from "next/image";
+import mylogo from "@/../public/logo_t.png";
 import { DASHBOARD_PAGES } from "@/config/pages-url.config";
+
+const footerNavigation = [
+  { name: "Catalog", href: DASHBOARD_PAGES.CARLIST, current: false },
+  { name: "Market", href: DASHBOARD_PAGES.MARKETPLACE, current: false },
+  { name: "About", href: DASHBOARD_PAGES.ABOUT, current: false },
+  { name: "Contact", href: DASHBOARD_PAGES.CONTACT, current: false },
+];
 
 export default function Footer() {
   return (
-    <div className="footer footer-container">
-      <div className="grid-container">
-        {/* О нас */}
-        <div>
-          <h3 className="section-title">О нас</h3>
-          <p className="section-description">
-            Мы предлагаем лучший выбор автомобилей для покупки и продажи. Наше
-            приложение помогает находить, сравнивать и покупать автомобили с
-            удобством и уверенностью.
-          </p>
+    <div className="footer">
+      <div className="navigation">
+        <div className="frame">
+          <Image 
+            alt="AUTOSTOP"
+            src={mylogo}
+            width={32}
+            draggable={false}
+          />
+          <div className="text-wrapper">AutoStop</div>
         </div>
 
-        {/* Полезные ссылки */}
-        <div>
-          <h3 className="section-title">Полезные ссылки</h3>
-          <ul className="link-list">
-            <li>
-              <Link href={DASHBOARD_PAGES.CARLIST}>Автомобили</Link>
-            </li>
-            <li>
-              <Link href={DASHBOARD_PAGES.MARKETPLACE}>Объявления</Link>
-            </li>
-            <li>
-              <Link href={DASHBOARD_PAGES.CONTACT}>Контакты</Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Социальные сети */}
-        <div>
-          <h3 className="section-title">Свяжитесь с нами</h3>
-          <p className="section-description mb-4">Следите за нами в социальных сетях:</p>
-          <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link">
-              <span className="sr-only">Facebook</span>
-              {/* SVG иконка */}
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">
-              <span className="sr-only">Twitter</span>
-              {/* SVG иконка */}
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link">
-              <span className="sr-only">Instagram</span>
-              {/* SVG иконка */}
-            </a>
+        <div className="menu-item">
+          <div className="menu">
+            {footerNavigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  aria-current={item.current ? 'page' : undefined}
+                  className={`div ${item.current ? 'active' : 'inactive'}`}
+                >
+                  {item.name}
+                </Link>
+              ))}
           </div>
+          
+
         </div>
       </div>
 
-      <div className="footer-bottom">
-        <p className="footer-text">&copy; 2024 АвтоСтоп. Все права защищены.</p>
+      <div className="frame-2">
+        <p className="p">© AutoStop 2024. All rights reserved</p>
       </div>
     </div>
   );
-}
+};
