@@ -9,6 +9,7 @@
 @import url('../styles/header/header.css');
 @import url('../styles/footer/footer.css');
 @import url('../styles/main/main.css');
+@import url('../styles/main/autoscroll.css');
 @import url('../styles/main/text.css');
 @import url('../styles/auth/login.css');
 

@@ -20,3 +20,305 @@
   right: 90px;
   z-index: 2;
 }
+
+
+/* Общие стили */
+.home-page {
+  background-color: #0b0b0f;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  padding: 0 2rem;
+}
+
+/* HERO Секция */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 6rem;
+  padding-bottom: 4rem;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to bottom left, transparent, #8f8ca6);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: #9ea3b5;
+}
+
+.hero-section p span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3f83f8;
+  margin: 0 0.5rem;
+}
+
+/* Панель поиска */
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  background: #1c1c24;
+  border-radius: 50px;
+  padding: 0.5rem;
+}
+
+.search-bar select,
+.search-bar button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  background: #282830;
+  color: #9ea3b5;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-bar button {
+  background: #3f83f8;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-bar button:hover {
+  background: #5a98f5;
+}
+
+/* Кнопки фильтров */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.filter-buttons button {
+  background: #282830;
+  color: #9ea3b5;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.filter-buttons button:hover {
+  background: #3f83f8;
+  color: #fff;
+}
+
+/* Логотипы брендов */
+.brands {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 4rem 0;
+  opacity: 0.7;
+}
+
+
+.brands .brand-logo {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* Карточки автомобилей */
+.vehicles {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.vehicles h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.vehicle-list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.vehicle-card {
+  background: #1c1c24;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 240px;
+  text-align: left;
+}
+
+.vehicle-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8);
+}
+
+.vehicle-card h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+}
+
+.vehicle-card p {
+  color: #9ea3b5;
+  font-size: 0.9rem;
+  padding: 0 1rem 1rem;
+  margin: 0;
+}
+
+/* Секция предложений */
+.offers {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 4rem 0;
+}
+
+.offer-card {
+  flex: 1;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.offer-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.offer-card:nth-child(1) {
+  background: #e2f1ff;
+  color: #3f83f8;
+}
+
+.offer-card:nth-child(2) {
+  background: #fde2e2;
+  color: #f87171;
+}
+
+.offer-card button {
+  margin-top: 1rem;
+  background: #3f83f8;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.offer-card button:hover {
+  background: #5a98f5;
+}
+
+/* Сдвиг заголовка влево */
+.hero-text {
+  text-align: left; /* Текст выровнен по левому краю */
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.hero-info {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.hero-info div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-info span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3f83f8;
+}
+
+.hero-info p {
+  font-size: 1rem;
+  color: #9ea3b5;
+}
+
+/* Опускаем меню поиска */
+.search-section {
+  margin-top: 34rem; /* Увеличиваем отступ сверху */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  background-color: #1c1c24;
+  padding: 1rem;
+  border-radius: 50px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.filter-buttons button {
+  background-color: #282830;
+  color: #9ea3b5;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.filter-buttons button:hover {
+  background-color: #3f83f8;
+  color: #fff;
+}

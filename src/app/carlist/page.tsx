@@ -2,7 +2,7 @@ import CarCard from "@/components/ui/carCard";
 import { DASHBOARD_PAGES } from "@/config/pages-url.config";
 import { Car } from "@/types/car";
 import Link from "next/link";
-import cars from "../../testData/cars"
+import cars from "../../testData/carList"
 
 
 interface CarsPageProps {
