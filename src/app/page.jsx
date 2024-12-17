@@ -3,6 +3,8 @@ import React from 'react';
 import Image from 'next/image';
 import mainCar from '@/../public/mainCar.png';
 import AutoScroll from "@/components/ui/main/autoScroll"
+import elecricCar1 from "@/../public/electric-car1.png"
+import elecricCar2 from "@/../public/electric-car2.png"
 
 const Home = () => {
   return (
@@ -72,10 +74,16 @@ const Home = () => {
         <section className="offers">
           <div className="offer-card">
             <h3>Are You Looking For a Car?</h3>
+            <h5>We are committed to providing our customers with
+            exceptional service.</h5>
+            <Image src={elecricCar1} alt='car1'/>
             <button>Get Started</button>
           </div>
           <div className="offer-card">
             <h3>Do You Want to Sell a Car?</h3>
+            <h5>We are committed to providing our customers with
+            exceptional service.</h5>
+            <Image src={elecricCar2} alt='car1'/>
             <button>Get Started</button>
           </div>
         </section>

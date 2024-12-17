@@ -1,26 +1,51 @@
+import Link from "next/link";
 import Image from "next/image";
-import facebookLogo from '@/../public/facebook.png';
-import googleLogo from '@/../public/google.png';
+import facebookLogo from "@/../public/facebook.png";
+import googleLogo from "@/../public/google.png";
 import Divider from "./divider";
 
-const OAuthButtons = () => {
+export default function OAuthButtons() {
   return (
     <div className="oauth-container">
-        <Divider/>
-      <div className="link">
-        <div className="symbol">
-          <Image src={facebookLogo} alt="facebook" />
+      <Divider/>
+      {/* Facebook Button */}
+      <Link href="/auth/facebook" passHref>
+        <div className="link" style={{ userSelect: "none" }}>
+          <div className="symbol">
+            <Image
+              src={facebookLogo}
+              alt="facebook"
+              draggable="false"
+            />
+          </div>
+          <div
+            className="login-with-facebook"
+            style={{ userSelect: "none" }}
+          >
+            Login with Facebook
+          </div>
         </div>
-        <div className="login-with-facebook">Login with Facebook</div>
-      </div>
-      <div className="div">
-        <div className="text-wrapper">
-          <Image src={googleLogo} alt="google" />
+      </Link>
+
+      {/* Google Button */}
+      <Link href="/auth/google" passHref>
+        <div className="div" style={{ userSelect: "none" }}>
+          <div className="symbol">
+            <Image
+              src={googleLogo}
+              alt="google"
+              style={{ width: "20px", height: "auto"}}
+              draggable="false"
+            />
+          </div>
+          <div
+            className="login-with-google"
+            style={{ userSelect: "none" }}
+          >
+            Login with Google
+          </div>
         </div>
-        <div className="login-with-google">Login with Google</div>
-      </div>
+      </Link>
     </div>
   );
-};
-
-export default OAuthButtons;
+}

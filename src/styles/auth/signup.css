@@ -1,4 +1,4 @@
-.login-window {
+.signup-window {
     background-color: white;
     width: 100%;
     height: 100%;
@@ -8,7 +8,7 @@
     padding-bottom: 150px;
 }
 
-.login-area {
+.signup-area {
     position: relative;
     width: 470px;
     height: 80%;
@@ -165,7 +165,7 @@
     width: 14px;
   }
   
-  .oauth-container .login-with-facebook {
+  .oauth-container .signup-with-facebook {
     color: #1967d2;
     font-family: "DM Sans-Regular", Helvetica;
     font-size: 14px;
@@ -203,7 +203,7 @@
   }
   
   
-  .oauth-container .login-with-google {
+  .oauth-container .signup-with-google {
     color: #d93025;
     font-family: "DM Sans-Regular", Helvetica;
     font-size: 14px;

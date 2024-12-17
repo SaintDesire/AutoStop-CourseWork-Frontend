@@ -12,6 +12,7 @@
 @import url('../styles/main/autoscroll.css');
 @import url('../styles/main/text.css');
 @import url('../styles/auth/login.css');
+@import url('../styles/auth/signup.css');
 
 
 * {

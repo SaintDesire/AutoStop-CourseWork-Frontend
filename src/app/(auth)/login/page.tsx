@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <div className="login-window">
       <div className="login-area">
-        <Tabs />
+        <Tabs active="signin"/>
         <div className="placeholder-form">
           <InputField type="email" label="Email" />
           <InputField type="password" label="Password" />
