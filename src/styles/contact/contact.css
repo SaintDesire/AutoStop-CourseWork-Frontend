@@ -1,0 +1,176 @@
+  .contact-page-container {
+    margin: 0 auto;
+  }
+  
+  .breadcrumb {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumb a {
+    color: #666;
+  }
+  .breadcrumb span {
+    color: #999;
+  }
+  
+  .contact-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .title-underline {
+    margin: 20px 0 40px 0;
+    border: none;
+    border-bottom: 2px solid #2f66ff;
+    width: 100px;
+  }
+  
+  .contact-content {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .contact-form-section {
+    flex: 2;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .section-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .form-group textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  
+  .form-group.full-width {
+    flex: 1;
+  }
+  
+  .send-message-btn {
+    background: #2f66ff;
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+  
+  .send-message-btn:hover {
+    background: #234bbf;
+  }
+  
+  .contact-details-section {
+    flex: 1;
+  }
+  
+  .details-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .details-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .details-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .detail-icon {
+    font-size: 20px;
+  }
+  
+  .detail-item strong {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  .follow-us {
+    margin-top: 20px;
+  }
+  
+  .follow-us strong {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    background: #eee;
+    color: #333;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .social-icons a:hover {
+    background: #ddd;
+  }
+  

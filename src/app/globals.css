@@ -13,6 +13,9 @@
 @import url('../styles/main/text.css');
 @import url('../styles/auth/login.css');
 @import url('../styles/auth/signup.css');
+@import url('../styles/dashboard/profile.css');
+@import url('../styles/contact/contact.css');
+@import url('../styles/about/about.css');
 
 
 * {
@@ -40,4 +43,10 @@ body article {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+.layout-container {
+  width: 100%;
+  padding: 20px;
+  color: #050B20;
 }

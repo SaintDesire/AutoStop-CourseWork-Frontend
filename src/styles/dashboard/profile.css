@@ -1,0 +1,147 @@
+.dashboard {
+    width: 100%;
+    border-top-left-radius: 12px;
+}
+
+.layout-container {
+    background: #f9f9f9;
+    min-height: 100vh;
+    display: flex;
+  }
+  
+  .profile-page-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .profile-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 200px;
+    background: #e5ecfa;
+    padding: 20px 0;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .sidebar li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  
+  .sidebar li:hover {
+    background: #d0d8f5;
+  }
+  
+  .sidebar .active {
+    background: #c0c9f0;
+    font-weight: bold;
+  }
+  
+  /* Profile Card */
+  .profileCard {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .avatarWrapper {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profileName {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+  }
+  
+  .profileEmail {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0 0;
+  }
+  
+  /* Profile Form */
+  .formContainer {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formGroup label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #444;
+  }
+  
+  .formGroup input,
+  .formGroup select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .emailBlock {
+    margin-top: 20px;
+  }
+  
+  .emailBlock h3 {
+    margin: 0 0 10px 0;
+  }
+  
+  .emailBlock p {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 4px;
+    color: #333;
+  }
+  
+  .editBtn {
+    margin-top: 20px;
+    background: #3f80ff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .editBtn:hover {
+    background: #3369e7;
+  }
+  
