@@ -1,7 +1,7 @@
 /* styles.css */
 .header-nav {
   position: relative;
-  background-color: rgba(14, 12, 21, 0.25);
+  background-color: rgba(14, 12, 21, 0.5);
   backdrop-filter: blur(10px);
   width: 1000px;
   margin: 15px auto;
@@ -75,7 +75,7 @@
 }
 
 .nav-link.active {
-  background-color: #111827;
+  background-color: #172136;
   color: #ffffff;
 }
 

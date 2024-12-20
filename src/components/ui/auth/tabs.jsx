@@ -7,18 +7,21 @@ export default function Tabs({ active }) {
   return (
     <div className="tab-container">
       {/* Кнопка Sign in */}
-      <button className={`tab ${active === "signin" ? "active" : ""}`}>
-        <Link href={DASHBOARD_PAGES.LOGIN}>
-          Sign in
-        </Link>
-      </button>
+      <Link href={DASHBOARD_PAGES.LOGIN}>
+        <button className={`tab ${active === "signin" ? "active" : ""}`}>
+            Sign In
+        </button>
+      
+      </Link>
 
       {/* Кнопка Sign Up */}
-      <button className={`tab ${active === "signup" ? "active" : ""}`}>
-        <Link href={DASHBOARD_PAGES.SIGNUP}>
-          Sign Up
-        </Link>
-      </button>
+      <Link href={DASHBOARD_PAGES.SIGNUP}>
+        <button className={`tab ${active === "signup" ? "active" : ""}`}>
+          
+            Sign Up
+        </button>
+      
+      </Link>
     </div>
   );
 }

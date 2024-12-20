@@ -25,8 +25,8 @@
     color: #9ea3b5;
   }
   
-  .tab.active {
-    color: #3f83f8;
+  .tab.tab-active {
+    color: white;
     border-bottom: 2px solid #3f83f8;
     padding-bottom: 0.5rem;
   }
@@ -63,11 +63,6 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     min-width: 250px;
     overflow: hidden;
-    transition: transform 0.3s;
-  }
-  
-  .card:hover {
-    transform: translateY(-10px);
   }
   
   .card img {

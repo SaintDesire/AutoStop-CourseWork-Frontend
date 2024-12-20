@@ -5,67 +5,55 @@ import mainCar from '@/../public/mainCar.png';
 import AutoScroll from "@/components/ui/main/autoScroll"
 import elecricCar1 from "@/../public/electric-car1.png"
 import elecricCar2 from "@/../public/electric-car2.png"
+import SearchBar from '@/components/ui/market/searchBar';
+import SearchInterface from '@/components/ui/main/searchBar';
 
 const Home = () => {
   return (
     <div className="home-container">
-      {/* Заголовок и информация */}
-      <div className="hero-text">
-        <h1>Fast and Easy</h1>
-        <div className="hero-info">
-          <div>
-            <span>50+</span>
-            <p>Car brands</p>
+      <div className='hero-text'>
+      <div className="max-w-fit ml-10 mt-36 px-4">
+        <h2 className="text-white text-5xl md:text-6xl font-bold text-center mb-16">
+          Fast and Easy
+        </h2>
+        
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
+          <div className="text-center md:text-left md:pr-8">
+            <div className="text-white text-4xl md:text-5xl font-bold mb-2">
+              50+
+            </div>
+            <div className="text-gray-400 text-lg">
+              Car brands
+            </div>
           </div>
-          <div>
-            <span>10k+</span>
-            <p>Clients</p>
+          
+          <div className="hidden md:block w-px h-16 bg-gray-800 mx-8" />
+          
+          <div className="text-center md:text-left md:pl-8">
+            <div className="text-white text-4xl md:text-5xl font-bold mb-2">
+              10k+
+            </div>
+            <div className="text-gray-400 text-lg">
+              Clients
+            </div>
           </div>
         </div>
       </div>
+      </div>
 
-      {/* Параллелограмм и изображение */}
-      <div className="parallelogram"></div>
-      <Image
-        src={mainCar}
-        alt="Main Car"
-        className="parallelogram-car"
-        priority
-      />
+      <div className="parallelogram">
+        <Image
+          src={mainCar}
+          alt="Main Car"
+          className="parallelogram-car"
+          priority
+        />
+      </div>
 
       {/* Панель поиска */}
       <section className="search-section">
-        <div className="search-bar">
-          <select>
-            <option>Any Makes</option>
-          </select>
-          <select>
-            <option>Any Models</option>
-          </select>
-          <select>
-            <option>All Prices</option>
-          </select>
-          <button>Search Cars</button>
-        </div>
-
-        <div className="filter-buttons">
-          <button>SUV</button>
-          <button>Sedan</button>
-          <button>Hatchback</button>
-          <button>Coupe</button>
-          <button>Hybrid</button>
-        </div>
+        <SearchInterface/>
       </section>
-      
-        {/* Логотипы */}
-        <section className="brands">
-          <div className="brand-logo">HONDA</div>
-          <div className="brand-logo">JAGUAR</div>
-          <div className="brand-logo">VOLVO</div>
-          <div className="brand-logo">AUDI</div>
-          <div className="brand-logo">ACURA</div>
-          <div className="brand-logo">TESLA</div>
-        </section>
 
         {/* Секция автомобилей */}
         <AutoScroll />

@@ -10,7 +10,7 @@ export default function SearchBar() {
   const [price, setPrice] = useState('')
   
   return (
-    <div className="min-h-[200px] bg-[#0a0b14] p-4 flex items-center justify-center">
+    <div className="bg-[#0a0b14] p-4 flex items-center justify-center mb-8 mt-8">
       <div className="flex items-center gap-2 bg-white rounded-full p-2 w-full max-w-5xl">
         {/* Condition Dropdown */}
         <div className="relative group">

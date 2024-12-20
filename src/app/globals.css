@@ -16,7 +16,8 @@
 @import url('../styles/dashboard/profile.css');
 @import url('../styles/contact/contact.css');
 @import url('../styles/about/about.css');
-
+@import url('../styles/cars/catalog');
+@import url('../styles/cars/searchBar');
 
 * {
   margin: 0;
@@ -51,98 +52,7 @@ body article {
   color: #050B20;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 32px;
-  padding: 10px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  gap: 16px;
-  max-width: fit-content;
-  margin: 20px auto;
-}
-
-.search-item {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #000;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.dropdown-icon {
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #000;
-  border-left: 2px solid #000;
-  transform: rotate(-45deg);
-  margin-top: 2px;
-}
-
-.divider {
-  width: 1px;
-  height: 24px;
-  background-color: #ddd;
-}
-
-.prices {
-  font-weight: bold;
-}
-
-.filter-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.filter-icon {
-  width: 16px;
-  height: 16px;
-  background: url('/icons/filter.svg') no-repeat center;
-  background-size: contain;
-}
-
-.find-button {
-  background-color: #4a90e2;
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 32px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.find-button:hover {
-  background-color: #357abd;
-}
-
-.search-icon {
-  font-size: 16px;
-}
-
+  
 @layer base {
   :root {
     --radius: 0.5rem;
@@ -207,4 +117,3 @@ body article {
     @apply bg-background text-foreground;
   }
 }
-
