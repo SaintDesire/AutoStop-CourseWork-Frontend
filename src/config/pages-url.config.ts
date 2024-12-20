@@ -2,7 +2,7 @@ class DASHBOARD {
     private root = ''
 
     HOME = `${this.root}/`
-    CARLIST = `${this.root}/carlist`
+    CARLIST = `${this.root}/catalog`
     CAR = `${this.root}/car`
     MARKETPLACE = `${this.root}/marketplace`
     ABOUT = `${this.root}/about`

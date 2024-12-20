@@ -22,11 +22,17 @@
   justify-content: space-between;
   align-items: center;
   height: 4rem;
+  width: 100%;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  user-select: none; /* Отключает выделение текста */
+  -webkit-user-select: none; /* Для браузеров на движке WebKit */
+  -moz-user-select: none; /* Для Firefox */
+  -ms-user-select: none; /* Для старых версий IE */
+  cursor: default; /* Устанавливает курсор по умолчанию */
 }
 
 .logo-text {
@@ -36,6 +42,15 @@
   font-style: normal;
   font-size: 2rem; /* Размер шрифта */
   font-weight: 600; /* Вес шрифта */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+}
+
+.logo img {
+  pointer-events: none;
 }
 
 .nav-links {
