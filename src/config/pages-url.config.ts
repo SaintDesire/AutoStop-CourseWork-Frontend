@@ -3,8 +3,9 @@ class DASHBOARD {
 
     HOME = `${this.root}/`
     CARLIST = `${this.root}/catalog`
-    CAR = `${this.root}/car`
+    CARLIST_CAR = `${this.CARLIST}/car`
     MARKETPLACE = `${this.root}/marketplace`
+    MARKETPLACE_CAR = `${this.MARKETPLACE}/car`
     ABOUT = `${this.root}/about`
     CONTACT = `${this.root}/contact`
     LOGIN = `${this.root}/login`

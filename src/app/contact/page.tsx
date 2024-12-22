@@ -15,7 +15,7 @@ export default function ContactPage() {
           <div className="contact-form-section">
             <h2 className="section-title">Get In Touch</h2>
             <p className="section-description">
-              Etiam pharetra egestas interdum blandit viverra morbi consequat mi non bibendum egestas quam egestas nulla.
+            Feel free to contact us for any inquiries or questions. We’re here to help!
             </p>
 
             <form className="contact-form">
@@ -55,7 +55,7 @@ export default function ContactPage() {
             <div className="details-card">
               <h3>Contact details</h3>
               <p className="details-description">
-                Etiam pharetra egestas interdum blandit viverra morbi consequat mi non bibendum egestas quam egestas nulla.
+              Reach out to us through the following contact methods or visit us at our office.
               </p>
               <div className="detail-item">
                 <span className="detail-icon">📍</span>
@@ -79,15 +79,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="follow-us">
-                <strong>Follow us</strong><br/>
-                <div className="social-icons">
-                  <a href="#" aria-label="Facebook">f</a>
-                  <a href="#" aria-label="Twitter">t</a>
-                  <a href="#" aria-label="Instagram">i</a>
-                  <a href="#" aria-label="LinkedIn">in</a>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

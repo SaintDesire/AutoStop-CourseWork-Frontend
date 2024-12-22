@@ -84,7 +84,7 @@ export default function CarCard({
         </div>
 
         {/* View Details Link */}
-        <Link href={`${DASHBOARD_PAGES.CAR}/1`} className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700">
+        <Link href={`${DASHBOARD_PAGES.CARLIST_CAR}/1`} className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700">
           View Details
           <svg 
             className="w-4 h-4 ml-1" 

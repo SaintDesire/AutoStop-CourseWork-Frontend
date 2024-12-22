@@ -25,18 +25,18 @@ export default function AboutPage() {
             <div className="hero-descriptions-container">
               <div className="hero-descriptions">
                 <p className="hero-description">
-                  Lorem ipsum dolor sit amet consectetur. Convallis integer enim eget sit urna. 
-                  Eu duis lectus amet vestibulum varius. Nibh tellus sit sit at lorem facilisis. 
-                  Nunc vulputate ac interdum aliquet vestibulum in tellus.
+                Our company has been providing top-notch automotive services for over four decades. 
+                We strive to ensure a seamless and pleasant experience for every client, 
+                with personalized attention to meet your needs.
                 </p>
                 <p className="hero-description">
-                  Sit convallis rhoncus dolor purus amet orci urna. Lobortis vulputate vestibulum 
-                  consectetur donec ipsum egestas siet luctus justo. Eu dignissim egestas egestas ipsum. 
-                  Sit sit nunc pellentesque at a aliquam ultrices consequat. Velit dui velit nec amet eget eu morbi. 
-                  Libero non diam sit viverra dignissim. Aliquam tincidunt in cursus euismod enim.
+                From helping you choose the perfect car to offering tailored financing options, 
+                we’re here to make your journey smooth and hassle-free. Our team is dedicated 
+                to delivering reliable, transparent, and professional service every step of the way.
                 </p>
                 <p className="hero-description">
-                  Magna odio sed ornare ultrices. Id lectus mi amet sit at arcu nisi. Mauris egestas arcu mauris.
+                With a deep understanding of the automotive market, we have built a legacy of trust and excellence. 
+                Let us help you find the perfect car that matches your style and needs.
                 </p>
               </div>
             </div>
