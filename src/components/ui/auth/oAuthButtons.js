@@ -3,49 +3,30 @@ import Image from "next/image";
 import facebookLogo from "@/../public/facebook.png";
 import googleLogo from "@/../public/google.png";
 import Divider from "./divider";
+import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 
 export default function OAuthButtons() {
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') || "/profile"
+
   return (
     <div className="oauth-container">
-      <Divider/>
-      {/* Facebook Button */}
-      <Link href="/auth/facebook" passHref>
-        <div className="link" style={{ userSelect: "none" }}>
-          <div className="symbol">
-            <Image
-              src={facebookLogo}
-              alt="facebook"
-              draggable="false"
-            />
-          </div>
-          <div
-            className="login-with-facebook"
-            style={{ userSelect: "none" }}
-          >
-            Login with Facebook
-          </div>
+      <Divider />
+      <button
+        onClick={() => signIn("google", { callbackUrl })}
+        className="oauth-button"
+      >
+        <div className="oauth-content">
+          <Image
+            src={googleLogo}
+            alt="google"
+            className="oauth-icon"
+            draggable="false"
+          />
+          <span className="oauth-text">Login with Google</span>
         </div>
-      </Link>
-
-      {/* Google Button */}
-      <Link href="/auth/google" passHref>
-        <div className="div" style={{ userSelect: "none" }}>
-          <div className="symbol">
-            <Image
-              src={googleLogo}
-              alt="google"
-              style={{ width: "20px", height: "auto"}}
-              draggable="false"
-            />
-          </div>
-          <div
-            className="login-with-google"
-            style={{ userSelect: "none" }}
-          >
-            Login with Google
-          </div>
-        </div>
-      </Link>
+      </button>
     </div>
   );
 }

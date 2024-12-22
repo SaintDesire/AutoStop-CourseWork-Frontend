@@ -10,6 +10,7 @@ import SearchInterface from '@/components/ui/main/searchBar';
 const Home = () => {
   return (
     <div className="home-container">
+      
       <div className='hero-text'>
       <div className="max-w-fit ml-10 mt-36 px-4">
         <h2 className="text-white text-5xl md:text-6xl font-bold text-center mb-16">

@@ -206,3 +206,46 @@
   background-color: #374151;
   color: #ffffff;
 }
+
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.profile-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-link {
+  background-color: #CAD1E9;
+  color: #1A237E;
+  font-family: var(--font-sourceCodePro);
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 140%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  z-index: 10;
+  padding: 10px 20px;
+}
+
+.signout-button {
+  background: none;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}

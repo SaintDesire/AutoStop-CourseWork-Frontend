@@ -131,11 +131,50 @@
     width: 38px;
   }
   
-
   .oauth-container {
-    height: 138px;
-    position: relative;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое контейнера */
+    gap: 20px; /* Отступ между кнопками */
+  }
+  
+  .oauth-button {
+    margin-top: 50px;
+    width: 100%; /* Кнопка занимает всю ширину контейнера */
+    max-width: 470px; /* Ограничиваем ширину кнопки */
+    height: 58px; /* Высота кнопки */
+    display: flex; /* Используем Flexbox */
+    align-items: center; /* Центровка содержимого по вертикали */
+    justify-content: center; /* Центровка содержимого по горизонтали */
+    background-color: #fff; /* Белый фон */
+    border: 1px solid #d93025; /* Красная граница */
+    border-radius: 16px; /* Скруглённые углы */
+    cursor: pointer; /* Указатель при наведении */
+    transition: all 0.3s; /* Анимация при наведении */
+  }
+  
+  .oauth-button:hover {
+    background-color: #f5f5f5; /* Светлый фон при наведении */
+  }
+  
+  .oauth-content {
+    display: flex; /* Используем Flexbox для содержимого кнопки */
+    align-items: center; /* Центровка иконки и текста по вертикали */
+    gap: 10px; /* Отступ между иконкой и текстом */
+  }
+  
+  .oauth-icon {
+    width: 20px; /* Ширина иконки */
+    height: auto; /* Сохраняем пропорции */
+  }
+  
+  .oauth-text {
+    color: #d93025; /* Красный текст */
+    font-family: "DM Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px; /* Размер текста */
+    font-weight: 500; /* Полужирный текст */
+    white-space: nowrap; /* Запрет на перенос текста */
   }
   
   .oauth-container .link {
@@ -165,31 +204,13 @@
     width: 14px;
   }
   
-  .oauth-container .login-with-facebook {
-    color: #1967d2;
-    font-family: "DM Sans-Regular", Helvetica;
-    font-size: 14px;
-    font-weight: 400;
-    height: 26px;
-    left: 46px;
-    letter-spacing: 0;
-    line-height: 25.9px;
-    position: absolute;
-    text-align: center;
-    top: 14px;
-    white-space: nowrap;
-    width: 136px;
-  }
   
   .oauth-container .div {
     border: 1px solid;
     border-color: #d93025;
     border-radius: 16px;
     height: 58px;
-    right: 15px;
-    position: absolute;
-    top: 60px;
-    width: 215px;
+    width: 100%;
   }
   
   .oauth-container .text-wrapper {
@@ -216,7 +237,7 @@
     text-align: center;
     top: 14px;
     white-space: nowrap;
-    width: 119px;
+
   }
   
   .oauth-container .overlap-group {
