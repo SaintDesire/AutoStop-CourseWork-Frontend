@@ -257,6 +257,10 @@
   background: #5a98f5;
 }
 
+.offer-card-image {
+  position: relative;
+}
+
 /* Сдвиг заголовка влево */
 .hero-text {
   text-align: left; /* Текст выровнен по левому краю */

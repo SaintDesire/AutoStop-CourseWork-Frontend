@@ -6,7 +6,7 @@ import Divider from "@/components/ui/auth//divider";
 
 const Login = () => {
   return (
-    <div className="login-window">
+    <div className="login-window" style={{minHeight: '800px'}}>
       <div className="login-area">
         <Tabs active="signin"/>
         <div className="placeholder-form">
