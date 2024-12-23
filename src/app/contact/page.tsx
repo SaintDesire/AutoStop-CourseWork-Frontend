@@ -37,7 +37,7 @@ export default function ContactPage() {
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">Phone</label>
-                  <input type="text" id="phone" placeholder="+90 123 456 789" />
+                  <input type="text" id="phone" placeholder="+375 29 123 45 67" />
                 </div>
               </div>
 
@@ -68,14 +68,14 @@ export default function ContactPage() {
                 <span className="detail-icon">✉️</span>
                 <div>
                   <strong>Email</strong><br/>
-                  ali@boxcars.com
+                  autostop@gmail.com
                 </div>
               </div>
               <div className="detail-item">
                 <span className="detail-icon">📞</span>
                 <div>
                   <strong>Phone</strong><br/>
-                  +76 956 123 456
+                  +375 29 988 72 16
                 </div>
               </div>
 

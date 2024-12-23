@@ -181,7 +181,7 @@ export default function VehicleScroll() {
       {/* Promotional Cards */}
       <div className="grid md:grid-cols-2 gap-6 mt-16">
         <div className="bg-[#e2f1ff] rounded-xl p-8">
-          <h3 className="text-2xl font-semibold mb-4">
+          <h3 className="text-2xl text-black font-semibold mb-4">
             Are You Looking<br />For a Car?
           </h3>
           <p className="text-gray-600 mb-8">
@@ -205,7 +205,7 @@ export default function VehicleScroll() {
         </div>
 
         <div className="bg-[#ffe2e2] rounded-xl p-8">
-          <h3 className="text-2xl font-semibold mb-4">
+          <h3 className="text-2xl text-black font-semibold mb-4">
             Do You Want to<br />Sell a Car?
           </h3>
           <p className="text-gray-600 mb-8">
