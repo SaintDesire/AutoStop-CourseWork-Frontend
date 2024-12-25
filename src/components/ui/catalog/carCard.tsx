@@ -30,7 +30,7 @@ export default function CarCard({
   const [isSaved, setIsSaved] = useState(isBookmarked);
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden w-full max-w-sm shadow-sm border border-gray-100 mb-10 mr-7 ml-7 pr-4">
+    <div className="bg-white rounded-2xl overflow-hidden w-full max-w-sm shadow-sm border border-gray-100 mb-10 mr-7 ml-7">
       {/* Image Container */}
       <div className="relative aspect-[4/3] w-full">
         <Image

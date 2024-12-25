@@ -40,7 +40,7 @@ export default function MarketPage() {
         <div>
             <SearchBar />
             <Layout>
-                <div style={{margin: '0 auto'}}>
+                <div style={{margin: '0 auto'}} className="ml-0">
                     
                 {/* Breadcrumbs */}
                 <div className="flex items-center gap-2 text-sm mb-6">
