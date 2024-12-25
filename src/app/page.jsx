@@ -4,7 +4,7 @@ import Image from 'next/image';
 import mainCar from '@/../public/mainCar.png';
 import brandingCarousel from '@/../public/Branding Carousel.png'
 import AutoScroll from "@/components/ui/main/autoScroll"
-import SearchBar from '@/components/ui/market/searchBar';
+import SearchBar from '@/components/ui/catalog/searchBar';
 import SearchInterface from '@/components/ui/main/searchBar';
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
           <div className="text-center md:text-left md:pr-8">
             <div className="text-white text-4xl md:text-5xl font-bold mb-2">
-              50+
+              10+
             </div>
             <div className="text-gray-400 text-lg">
               Car brands

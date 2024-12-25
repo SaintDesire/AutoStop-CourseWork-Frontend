@@ -13,6 +13,8 @@ interface CarCardProps {
   mileage: number
   fuelType: string
   transmission: string
+  isBookmarked: boolean // Новое свойство для управления состоянием закладки
+  isMarket: boolean
 }
 
 export default function CarCard({
@@ -21,12 +23,14 @@ export default function CarCard({
   subtitle,
   mileage,
   fuelType,
-  transmission
+  transmission,
+  isBookmarked,
+  isMarket
 }: CarCardProps) {
-  const [isSaved, setIsSaved] = useState(false)
+  const [isSaved, setIsSaved] = useState(isBookmarked);
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden w-full max-w-sm shadow-sm border border-gray-100 mb-10 mr-7 ml-7">
+    <div className="bg-white rounded-2xl overflow-hidden w-full max-w-sm shadow-sm border border-gray-100 mb-10 mr-7 ml-7 pr-4">
       {/* Image Container */}
       <div className="relative aspect-[4/3] w-full">
         <Image
@@ -39,9 +43,9 @@ export default function CarCard({
           onClick={() => setIsSaved(!isSaved)}
           className="absolute top-3 right-3 p-2 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-colors"
         >
-          <Bookmark 
+          {isMarket ? <Bookmark 
             className={`w-5 h-5 ${isSaved ? 'fill-current text-blue-600' : 'text-gray-600'}`} 
-          />
+          /> : ''}
         </button>
       </div>
 
@@ -104,4 +108,3 @@ export default function CarCard({
     </div>
   )
 }
-

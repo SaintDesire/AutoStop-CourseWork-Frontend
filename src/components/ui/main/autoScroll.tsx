@@ -7,7 +7,7 @@ import { Bookmark, ArrowLeft, ArrowRight, Gauge, Fuel, Settings2, ArrowUpRight }
 import elecricCar1 from "@/../public/electric-car1.png"
 import elecricCar2 from "@/../public/electric-car2.png"
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
-import CarCard from '../market/carCard'
+import CarCard from '../catalog/carCard'
 
 // Sample data - in real app would come from API/database
 const cars = [

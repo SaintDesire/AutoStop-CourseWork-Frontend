@@ -1,6 +1,6 @@
 "use client"
 
-import CarCard from "@/components/ui/market/carCard"
+import CarCard from "@/components/ui/catalog/carCard"
 import SearchBar from "@/components/ui/market/searchBar"
 import carImage from "@/../public/electric-car1.png"
 import Link from "next/link"
@@ -12,8 +12,10 @@ export default function MarketPage() {
     const [sortBy, setSortBy] = useState('Default')
     const [currentPage, setCurrentPage] = useState(1)
     
+    const carsPerPage = 15; // Количество автомобилей на одной странице
+
     // Пример массива машин для отображения
-    const cars = new Array(12).fill(null).map((_, index) => ({
+    const cars = new Array(42).fill(null).map((_, index) => ({
         id: index,
         title: "Toyota Camry New",
         subtitle: "3.5 D5 PowerPulse Momentum 5dr AW...",
@@ -22,6 +24,17 @@ export default function MarketPage() {
         transmission: "Automatic",
         imageUrl: carImage,
     }));
+
+    // Рассчитываем текущие автомобили для отображения на основе страницы
+    const indexOfLastCar = currentPage * carsPerPage;
+    const indexOfFirstCar = indexOfLastCar - carsPerPage;
+    const currentCars = cars.slice(indexOfFirstCar, indexOfLastCar);
+
+    const totalPages = Math.ceil(cars.length / carsPerPage);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
 
     return (
         <div>
@@ -45,7 +58,7 @@ export default function MarketPage() {
                             Market
                         </h1>
                         <p className="text-sm text-gray-500">
-                            Showing 1 - {cars.length} of {cars.length} results
+                            Showing {indexOfFirstCar + 1} - {Math.min(indexOfLastCar, cars.length)} of {cars.length} results
                         </p>
                     </div>
 
@@ -80,6 +93,8 @@ export default function MarketPage() {
                             mileage={car.mileage}
                             fuelType={car.fuelType}
                             transmission={car.transmission}
+                            isBookmarked={false}
+                            isMarket={true}
                         />
                     ))}
                 </div>
