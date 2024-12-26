@@ -4,7 +4,7 @@ import Image from 'next/image';
 import mainCar from '@/../public/mainCar.png';
 import brandingCarousel from '@/../public/Branding Carousel.png'
 import AutoScroll from "@/components/ui/main/autoScroll"
-import SearchBar from '@/components/ui/catalog/searchBar';
+import SearchBar from '@/components/ui/market/searchBar';
 import SearchInterface from '@/components/ui/main/searchBar';
 
 const Home = () => {
@@ -52,7 +52,7 @@ const Home = () => {
 
       {/* Панель поиска */}
       <section className="search-section">
-        <SearchInterface/>
+        <SearchBar/>
       </section>
 
       <Image src={brandingCarousel} alt='Brands' style={{ userDrag: "none", pointerEvents: "none" }}/>

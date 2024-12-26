@@ -7,7 +7,6 @@ import Layout from "@/components/ui/layout";
 import CarCard from "@/components/ui/catalog/carCard";
 
 export default function CatalogPage() {
-    const [sortBy, setSortBy] = useState("Default");
     const [currentPage, setCurrentPage] = useState(1);
     const [allCars, setAllCars] = useState([]); // Store all cars
     const [cars, setCars] = useState([]);       // Store filtered cars
@@ -23,7 +22,7 @@ export default function CatalogPage() {
     useEffect(() => {
         const fetchCars = async () => {
             try {
-                const response = await fetch("http://localhost:3001/api/cars");
+                const response = await fetch("http://localhost:3001/api/catalog/cars");
                 if (!response.ok) {
                     throw new Error(`Ошибка: ${response.statusText}`);
                 }
