@@ -54,20 +54,29 @@ export default function AddCarPage() {
       })
     )
       .then((base64Images) => {
-        setFormData((prev) => ({ ...prev, images: [...prev.images, ...base64Images] }));
+        setFormData((prev) => ({
+          ...prev,
+          images: [...prev.images, ...base64Images],
+        }));
       })
       .catch((error) => console.error("Error uploading images:", error));
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    const formDataWithImages = {
+      ...formData,
+      images: JSON.stringify(formData.images), // Сериализуем изображения
+    };
+
     try {
       const response = await fetch("http://localhost:3001/api/market/cars", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formDataWithImages),
       });
 
       if (!response.ok) {

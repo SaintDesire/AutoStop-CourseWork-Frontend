@@ -1,22 +1,26 @@
-import Link from "next/link";
+// components/ui/auth/OAuthButtons.tsx
+
+"use client";
+
 import Image from "next/image";
-import facebookLogo from "@/../public/facebook.png";
 import googleLogo from "@/../public/google.png";
 import Divider from "./divider";
-import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
+
 
 export default function OAuthButtons() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || "/profile"
+  const callbackUrl = searchParams.get('callbackUrl') || "/profile";
+
+  const handleGoogleLogin = () => {
+    // Перенаправляем пользователя на серверный маршрут для инициации Google OAuth с callbackUrl
+    window.location.href = `http://localhost:3001/api/auth/google?callbackUrl=${encodeURIComponent(callbackUrl)}`;
+  };
 
   return (
     <div className="oauth-container">
       <Divider />
-      <button
-        onClick={() => signIn("google", { callbackUrl })}
-        className="oauth-button"
-      >
+      <button onClick={handleGoogleLogin} className="oauth-button">
         <div className="oauth-content">
           <Image
             src={googleLogo}

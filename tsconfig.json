@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/ui/header.jsx", "src/components/ui/header.jsx", "src/app/page.jsx", "src/components/ui/main/carCatalog.jsx", "src/components/ui/dashboard/profile/profileCard.jsx", "src/app/catalog/page.jsx", "src/app/marketplace/page.jsx", "src/components/ui/catalog/searchBar.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/ui/header.tsx", "src/components/ui/header.tsx", "src/app/page.jsx", "src/components/ui/main/carCatalog.jsx", "src/components/ui/dashboard/profile/profileCard.jsx", "src/app/catalog/page.jsx", "src/app/marketplace/page.jsx", "src/components/ui/catalog/searchBar.tsx", "src/app/(dashboard)/profile/page.tsx", "src/config/auth.js"],
   "exclude": ["node_modules"]
 }

@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
-import { FormEventHandler, useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Tabs from "@/components/ui/auth/tabs";
 import InputField from "@/components/ui/inputField";
 import OAuthButtons from "@/components/ui/auth/oAuthButtons";
-import Divider from "@/components/ui/auth/divider";
+import { AuthContext } from '@/components/ui/authProvider';
 import { DASHBOARD_PAGES } from "@/config/pages-url.config";
-import { signIn } from "next-auth/react";
 
 interface LoginResponse {
   user: {
@@ -20,24 +19,40 @@ interface LoginResponse {
 }
 
 const Login: React.FC = () => {
+  const { setIsAuthenticated, setUser } = useContext(AuthContext);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || "/profile"
+  const callbackUrl = searchParams.get("callbackUrl") || DASHBOARD_PAGES.PROFILE;
 
   const handleLogin = async () => {
-    const res = await signIn("credentials", {
-      email: email,
-      password: password,
-      redirect: false
-    });
-
-    if (res && !res.error) {
-      router.push(DASHBOARD_PAGES.PROFILE)
-    } else {
-      setError("Invalid login credentials. Please try again.");
+    try {
+      const response = await fetch("http://localhost:3001/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // Важно для отправки и получения cookies
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (!response.ok) {
+        const { message } = await response.json();
+        setError(message || "Login failed");
+        return;
+      }
+  
+      const data: LoginResponse = await response.json();
+      setIsAuthenticated(true);
+      setUser(data.user);
+  
+      // Перенаправляем пользователя на профиль или другую страницу
+      router.push(callbackUrl);
+    } catch (err) {
+      console.error("Error during login:", err);
+      setError("Something went wrong. Please try again.");
     }
   };
   
@@ -47,19 +62,18 @@ const Login: React.FC = () => {
       <div className="login-area">
         <Tabs active="signin" />
         <div className="placeholder-form">
-        <InputField
-          type="email"
-          label="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <InputField
-          type="password"
-          label="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
+          <InputField
+            type="email"
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <InputField
+            type="password"
+            label="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         {error && <p style={{ color: "red" }}>{error}</p>}
         <div

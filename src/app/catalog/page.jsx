@@ -13,11 +13,9 @@ export default function CatalogPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Объект filters хранит выбранные в <SearchBar> значения
-    // Пример: { brand: "BMW", model: "X5", year: "2020", cityMpg: "20-25", ... }
     const [filters, setFilters] = useState({});
 
-    const carsPerPage = 15; // Number of cars per page
+    const carsPerPage = 16; // Number of cars per page
 
     useEffect(() => {
         const fetchCars = async () => {
@@ -28,8 +26,6 @@ export default function CatalogPage() {
                 }
                 const data = await response.json();
 
-                // Преобразуем данные к удобному виду
-                // (например, переписываем drive, transmission и fuel_type в более читаемый формат)
                 const processedData = data.map((car) => ({
                     ...car,
                     details: {
@@ -281,9 +277,9 @@ export default function CatalogPage() {
                                 <CarCard
                                     key={index}
                                     imageUrl={`data:image/jpeg;base64,${car.images[0]}`}
-                                    title={`${car.brand} ${car.model}`}
-                                    subtitle={`Год: ${car.year}`}
-                                    // Если хотите вывести именно city_mpg, меняйте здесь
+                                    brand={car.brand}
+                                    model={car.model}
+                                    year={car.year}
                                     mileage={car.details?.city_mpg || "N/A"}
                                     fuelType={car.details?.fuel_type || "N/A"}
                                     transmission={car.details?.transmission || "N/A"}

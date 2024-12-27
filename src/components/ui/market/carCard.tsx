@@ -7,7 +7,8 @@ import Link from 'next/link';
 import { DASHBOARD_PAGES } from '@/config/pages-url.config';
 
 interface CarCardProps {
-  imageUrl: any; 
+  carId: string
+  imageUrl: any;
   brand: string
   model: string
   year: string
@@ -19,6 +20,7 @@ interface CarCardProps {
 }
 
 export default function CarCard({
+  carId,
   imageUrl,
   brand,
   model,
@@ -30,36 +32,39 @@ export default function CarCard({
   isMarket
 }: CarCardProps) {
   const [isSaved, setIsSaved] = useState(isBookmarked);
-  
-  function formatModel(model: string) {
-    if (!model) {
-      return ''; // Возвращаем пустую строку, если model не задан
+
+  function removeBase64Prefix(imageUrl: string) {
+    const base64Prefix = 'data:image/png;base64,';
+    if (imageUrl.startsWith(base64Prefix)) {
+      return imageUrl.substring(base64Prefix.length); // Убираем префикс
     }
-
-    return model
-      .split(' ') // Разбиваем строку на слова
-      .map(word => {
-        if (word.length < 4) {
-          return word.toUpperCase(); // Если слово короче 4 символов, делаем его заглавным
-        } else {
-          return word.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase()); // Преобразуем первую букву каждого слова в заглавную
-        }
-      })
-      .join(' '); // Собираем обратно в строку
+    return imageUrl; // Если префикс отсутствует, возвращаем строку как есть
   }
-  
-  const capitalizedModel = formatModel(model);
 
+
+  let image = `data:image/jpeg;base64,${removeBase64Prefix(imageUrl)}`
   return (
     <div className="bg-white rounded-2xl overflow-hidden w-full max-w-sm shadow-sm border border-gray-100 mb-10 mr-7 ml-7">
       {/* Image Container */}
       <div className="relative aspect-[4/3] w-full">
-        <Image
-          src={imageUrl}
-          alt={`${brand} ${capitalizedModel}`}
-          fill
-          className="object-cover"
-        />
+        {/* Если imageUrl начинается с 'data:image/', то это Base64 изображение */}
+        {imageUrl.startsWith('data:image/') ? (
+          <img 
+            src={imageUrl} 
+            alt={`${model} ${brand}`} 
+            className="object-cover w-full h-full" 
+          />
+        ) : (
+          <Image
+            src={image} // Используем обычный URL, если это не Base64
+            alt={`${model} ${brand}`}
+            fill
+            className="object-cover"
+            unoptimized // Отключаем оптимизацию для Base64
+          />
+          
+        )}
+
         <button 
           onClick={() => setIsSaved(!isSaved)}
           className="absolute top-3 right-3 p-2 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-colors"
@@ -74,7 +79,8 @@ export default function CarCard({
       <div className="p-4">
         {/* Title Section */}
         <div className="space-y-1 mb-4">
-          <h3 className="font-semibold text-lg text-gray-900">{brand} {capitalizedModel} {year}</h3>
+          <h3 className="font-semibold text-lg text-gray-900">{`${model} ${brand}`}</h3>
+          <p className="text-sm text-gray-600 line-clamp-1">{year}</p>
         </div>
 
         {/* Specs Grid */}
@@ -108,7 +114,7 @@ export default function CarCard({
         </div>
 
         {/* View Details Link */}
-        <Link href={`${DASHBOARD_PAGES.CARLIST_CAR}/${brand}/${model}`} className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700">
+        <Link href={`${DASHBOARD_PAGES.MARKETPLACE_CAR}/${carId}`} className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700">
           View Details
           <svg 
             className="w-4 h-4 ml-1" 

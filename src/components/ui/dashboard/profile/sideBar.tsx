@@ -1,5 +1,6 @@
 "use client"
 
+import { DASHBOARD_PAGES } from "@/config/pages-url.config";
 import Link from "next/link";
 
 export default function Sidebar() {
@@ -24,16 +25,10 @@ export default function Sidebar() {
     <nav className="sidebar">
       <ul>
         <li className="active">
-          <Link href="/profile">Profile</Link>
+          <Link href={DASHBOARD_PAGES.PROFILE}>Profile</Link>
         </li>
         <li>
-          <Link href="/dashboard">Dashboard</Link>
-        </li>
-        <li>
-          {/* Вызываем handleLogout при клике */}
-          <button onClick={handleLogout}>
-            Logout
-          </button>
+          <Link href={DASHBOARD_PAGES.PROFILE_DASHBOARD}>Dashboard</Link>
         </li>
       </ul>
     </nav>

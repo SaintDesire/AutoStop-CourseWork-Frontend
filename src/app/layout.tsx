@@ -3,7 +3,7 @@ import { Source_Code_Pro, DM_Sans } from 'next/font/google'
 import "./globals.css";
 import Header from '../components/ui/header'
 import Footer from '../components/ui/footer'
-import { Providers } from "@/components/ui/provider";
+import { AuthProvider } from "@/components/ui/authProvider";
 
 const sourceCodePro = Source_Code_Pro({
   subsets: ['latin'],
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html className={`${sourceCodePro.variable} ${dmSans.variable}`}>
       <body>
-          <Providers>
+          <AuthProvider>
             <header>
               <Header/>
             </header>
@@ -42,7 +42,7 @@ export default function RootLayout({
             <footer>
               <Footer/>
             </footer>
-          </Providers>
+          </AuthProvider>
           
       </body>
     </html>

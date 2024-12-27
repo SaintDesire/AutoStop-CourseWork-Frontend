@@ -6,6 +6,7 @@ class DASHBOARD {
     CARLIST_CAR = `${this.CARLIST}/car`
     MARKETPLACE = `${this.root}/marketplace`
     MARKETPLACE_CAR = `${this.MARKETPLACE}/car`
+    MARKETPLACE_CAR_ADD = `${this.MARKETPLACE_CAR}/add`
     ABOUT = `${this.root}/about`
     CONTACT = `${this.root}/contact`
     LOGIN = `${this.root}/login`
@@ -13,7 +14,7 @@ class DASHBOARD {
     SIGNOUT = `${this.root}/signout`
     RESET_PASSWORD = `${this.root}/reset-password`
     PROFILE = `${this.root}/profile`
-    PROFILE_ADS = `${this.PROFILE}/ads`
+    PROFILE_DASHBOARD = `${this.PROFILE}/dashboard`
     SETTINGS = `${this.PROFILE}/settings`
 }
 

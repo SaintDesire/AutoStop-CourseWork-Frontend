@@ -1,6 +1,6 @@
 "use client";
 
-import CarCard from "@/components/ui/catalog/carCard";
+import CarCard from "@/components/ui/market/carCard";
 import SearchBar from "@/components/ui/market/searchBar";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
@@ -13,7 +13,7 @@ export default function MarketPage() {
   const [cars, setCars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const carsPerPage = 15; // Количество автомобилей на одной странице
+  const carsPerPage = 16; // Количество автомобилей на одной странице
 
   // Загрузка данных с сервера
   useEffect(() => {
@@ -109,9 +109,11 @@ export default function MarketPage() {
                 {currentCars.map((car) => (
                   <CarCard
                     key={car.car_id}
-                    imageUrl={car.image[0] || "/placeholder.jpg"} // Используем первое изображение или плейсхолдер
-                    title={car.name}
-                    subtitle={`${car.brand} - ${car.year}`}
+                    carId={car}
+                    imageUrl={car.image[0]}
+                    brand={car.brand}
+                    model={car.model}
+                    year={car.year}
                     mileage={car.mileage}
                     fuelType={car.engine}
                     transmission={car.transmission || "Automatic"}
