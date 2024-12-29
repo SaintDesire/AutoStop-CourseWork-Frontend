@@ -4,8 +4,8 @@ import Layout from "@/components/ui/layout";
 import { useState, ChangeEvent, FormEvent } from "react";
 
 interface FormData {
-  name: string;
   brand: string;
+  model: string;
   year: string;
   price: string;
   mileage: string;
@@ -21,8 +21,8 @@ interface FormData {
 
 export default function AddCarPage() {
   const [formData, setFormData] = useState<FormData>({
-    name: "",
     brand: "",
+    model: "",
     year: "",
     price: "",
     mileage: "",
@@ -99,17 +99,17 @@ export default function AddCarPage() {
           {/* Text inputs for car details */}
           <input
             type="text"
-            name="name"
-            placeholder="Car Name"
-            value={formData.name}
+            name="brand"
+            placeholder="Brand"
+            value={formData.brand}
             onChange={handleInputChange}
             className="w-full p-3 border rounded text-gray-900 focus:ring-2 focus:ring-blue-400"
           />
           <input
             type="text"
-            name="brand"
-            placeholder="Brand"
-            value={formData.brand}
+            name="model"
+            placeholder="Car Name"
+            value={formData.model}
             onChange={handleInputChange}
             className="w-full p-3 border rounded text-gray-900 focus:ring-2 focus:ring-blue-400"
           />

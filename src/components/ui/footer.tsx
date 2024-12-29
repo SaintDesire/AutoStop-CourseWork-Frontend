@@ -7,7 +7,6 @@ const footerNavigation = [
   { name: "Catalog", href: DASHBOARD_PAGES.CARLIST, current: false },
   { name: "Market", href: DASHBOARD_PAGES.MARKETPLACE, current: false },
   { name: "About", href: DASHBOARD_PAGES.ABOUT, current: false },
-  { name: "Contact", href: DASHBOARD_PAGES.CONTACT, current: false },
 ];
 
 export default function Footer() {

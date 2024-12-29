@@ -1,110 +1,86 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState, useRef } from 'react'
-import { Bookmark, ArrowLeft, ArrowRight, Gauge, Fuel, Settings2, ArrowUpRight } from 'lucide-react'
-import elecricCar1 from "@/../public/electric-car1.png"
-import elecricCar2 from "@/../public/electric-car2.png"
-import { DASHBOARD_PAGES } from '@/config/pages-url.config'
-import CarCard from '../catalog/carCard'
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState, useRef, useEffect } from 'react';
+import { Bookmark, ArrowLeft, ArrowRight, Gauge, Fuel, Settings2, ArrowUpRight } from 'lucide-react';
 
-// Sample data - in real app would come from API/database
-const cars = [
-  {
-    id: 1,
-    title: "Ford Transit – 2021",
-    subtitle: "4.0 D5 PowerPulse Momentum 5dr AW...",
-    mileage: "2500",
-    fuelType: "Diesel",
-    transmission: "Manual",
-    imageUrl: "/car1.jpg",
-  },
-  {
-    id: 2,
-    title: "New GLC – 2023",
-    subtitle: "4.0 D5 PowerPulse Momentum 5dr AW...",
-    mileage: "50",
-    fuelType: "Petrol",
-    transmission: "Automatic",
-    imageUrl: "/car2.jpg",
-  },
-  {
-    id: 3,
-    title: "Audi A6 3.6 – New",
-    subtitle: "3.6 FSI Quattro Premium Plus AWD...",
-    mileage: "10",
-    fuelType: "Petrol",
-    transmission: "Automatic",
-    imageUrl: "/car3.jpg",
-  },
-  {
-    id: 4,
-    title: "BMW X5 – 2022",
-    subtitle: "xDrive 40i Sports Activity Vehicle...",
-    mileage: "500",
-    fuelType: "Petrol",
-    transmission: "Automatic",
-    imageUrl: "/car4.jpg",
-  },
-  {
-    id: 5,
-    title: "Toyota Prius – 2022",
-    subtitle: "Hybrid LE Hatchback 4D...",
-    mileage: "300",
-    fuelType: "Hybrid",
-    transmission: "Automatic",
-    imageUrl: "/car5.jpg",
-  },
-  {
-    id: 6,
-    title: "Kia Carnival – 2023",
-    subtitle: "3.5 V6 SX Prestige MPV...",
-    mileage: "150",
-    fuelType: "Petrol",
-    transmission: "Automatic",
-    imageUrl: "/car6.jpg",
-  },
-  {
-    id: 7,
-    title: "Honda Accord – 2023",
-    subtitle: "1.5T EX Sedan CVT...",
-    mileage: "100",
-    fuelType: "Petrol",
-    transmission: "Automatic",
-    imageUrl: "/car7.jpg",
-  },
-  {
-    id: 8,
-    title: "Hyundai Tucson – 2022",
-    subtitle: "2.5L SEL AWD SUV...",
-    mileage: "1000",
-    fuelType: "Petrol",
-    transmission: "Automatic",
-    imageUrl: "/car8.jpg",
-  },
-];
+import CarCard from '../market/carCard';
+import { DASHBOARD_PAGES } from '@/config/pages-url.config';
 
+interface CarDetails {
+  car_id: number;
+  model: string;
+  brand: string;
+  year: number;
+  price: number;
+  description: string | null;
+  mileage: number;
+  engine: string;
+  seats: number;
+  images: string[]; // массив Base64 изображений
+  condition: string;
+  bodyType: string;
+  fuelType: string;
+  transmission: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
+const car_id = [1, 2, 3, 4]; // Вынесено за пределы компонента
 
 export default function VehicleScroll() {
-  const [activeTab, setActiveTab] = useState('in-stock')
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [cars, setCars] = useState<CarDetails[]>([]);
+
+  useEffect(() => {
+    const fetchCarDetails = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        // Выполнение всех запросов параллельно
+        const responses = await Promise.all(
+          car_id.map((id) => fetch(`http://localhost:3001/api/market/cars/${id}`))
+        );
+
+        // Проверка всех ответов и получение данных
+        const data = await Promise.all(
+          responses.map((response) => {
+            if (!response.ok) {
+              throw new Error('Не удалось получить детали автомобиля');
+            }
+            return response.json();
+          })
+        );
+
+        setCars(data);
+      } catch (err) {
+        setError((err as Error).message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCarDetails();
+  }, []); // Пустой массив зависимостей, чтобы запрос выполнялся только при загрузке
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 400
-      const currentScroll = scrollContainerRef.current.scrollLeft
-      const newScroll = direction === 'left' 
-        ? currentScroll - scrollAmount 
-        : currentScroll + scrollAmount
-      
+      const scrollAmount = 400;
+      const currentScroll = scrollContainerRef.current.scrollLeft;
+      const newScroll = direction === 'left'
+        ? currentScroll - scrollAmount
+        : currentScroll + scrollAmount;
+
       scrollContainerRef.current.scrollTo({
         left: newScroll,
-        behavior: 'smooth'
-      })
+        behavior: 'smooth',
+      });
     }
-  }
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
@@ -112,7 +88,7 @@ export default function VehicleScroll() {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold text-white">Explore All Vehicles</h1>
         <Link 
-          href="/all-vehicles" 
+          href={DASHBOARD_PAGES.MARKETPLACE} 
           className="text-sm text-white flex items-center hover:text-gray-300"
         >
           View All
@@ -120,47 +96,46 @@ export default function VehicleScroll() {
         </Link>
       </div>
 
-      {/* Tabs */}
-      <div className="flex gap-6 mb-8">
-        {['In Stock', 'New Cars', 'Used Cars'].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab.toLowerCase().replace(' ', '-'))}
-            className={`text-sm font-medium pb-2 border-b-2 transition-colors
-              ${activeTab === tab.toLowerCase().replace(' ', '-')
-                ? 'text-white border-white'
-                : 'text-gray-400 border-transparent hover:text-gray-300'
-              }`}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
+
 
       {/* Vehicle Scroll Container */}
       <div className="relative mb-8">
-        <div 
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto scroll-smooth no-scrollbar"
-          style={{ scrollSnapType: 'x mandatory' }}
-        >
-          {cars.map((car) => (
-            <div 
-              key={car.id}
-              className="flex-none min-w-[350px]" // Минимальная ширина для карточки
-              style={{ scrollSnapAlign: 'start' }}
-            >
-              <CarCard
-                imageUrl={car.imageUrl}
-                title={car.title}
-                subtitle={car.subtitle}
-                mileage={Number(car.mileage)}
-                fuelType={car.fuelType}
-                transmission={car.transmission}
-              />
-            </div>
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex justify-center items-center min-h-[200px]">
+            <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+          </div>
+        ) : error ? (
+          <p className="text-center text-red-500">{error}</p>
+        ) : (
+          <div 
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto scroll-smooth no-scrollbar"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            {cars.map((car) => (
+              <div 
+                key={car.car_id}
+                className="flex-none min-w-[350px]" // Минимальная ширина для карточки
+                style={{ scrollSnapAlign: 'start' }}
+              >
+                <CarCard
+                  key={car.car_id}
+                  carId={car.car_id.toString()}
+                  imageUrl={car.images[0]}
+                  brand={car.brand}
+                  model={car.model}
+                  year={car.year.toString()}
+                  price={car.price.toString()}
+                  mileage={car.mileage}
+                  fuelType={car.fuelType}
+                  transmission={car.transmission || "Automatic"}
+                  isBookmarked={false}
+                  isMarket={true}
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Navigation Arrows */}
         <button 
@@ -175,59 +150,7 @@ export default function VehicleScroll() {
         >
           <ArrowRight className="w-4 h-4" />
         </button>
-
-      </div>
-
-      {/* Promotional Cards */}
-      <div className="grid md:grid-cols-2 gap-6 mt-16">
-        <div className="bg-[#e2f1ff] rounded-xl p-8">
-          <h3 className="text-2xl text-black font-semibold mb-4">
-            Are You Looking<br />For a Car?
-          </h3>
-          <p className="text-gray-600 mb-8">
-            We are committed to providing our customers with exceptional service.
-          </p>
-          <div className="flex items-center justify-between">
-            <Link 
-              href={DASHBOARD_PAGES.CARLIST}
-              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 flex items-center"
-            >
-              Get Started
-              <ArrowUpRight className="ml-1 w-4 h-4" />
-            </Link>
-            <Image
-              src={elecricCar1}
-              alt="Electric Car"
-              width={80}
-              height={80}
-            />
-          </div>
-        </div>
-
-        <div className="bg-[#ffe2e2] rounded-xl p-8">
-          <h3 className="text-2xl text-black font-semibold mb-4">
-            Do You Want to<br />Sell a Car?
-          </h3>
-          <p className="text-gray-600 mb-8">
-            We are committed to providing our customers with exceptional service.
-          </p>
-          <div className="flex items-center justify-between">
-            <Link 
-              href={DASHBOARD_PAGES.MARKETPLACE}
-              className="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 flex items-center"
-            >
-              Get Started
-              <ArrowUpRight className="ml-1 w-4 h-4" />
-            </Link>
-            <Image
-              src={elecricCar2}
-              alt="Sell Car"
-              width={80}
-              height={80}
-            />
-          </div>
-        </div>
       </div>
     </div>
-  )
+  );
 }

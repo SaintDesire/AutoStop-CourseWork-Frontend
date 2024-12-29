@@ -1,35 +1,40 @@
-"use client"
+"use client";
 
 import { DASHBOARD_PAGES } from "@/config/pages-url.config";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-export default function Sidebar() {
-  const handleLogout = async () => {
-    try {
-    const response = await fetch("http://localhost:3001/api/auth/logout", {
-      method: "POST",
-      credentials: "include", // Автоматическая отправка cookies
-    });
+interface SidebarProps {
+  role: number | null;
+  setActiveSection: (section: string) => void; // Новый проп
+}
 
-      if (response.ok) {
-        console.log("Logout successful");
-      } else {
-        console.error("Logout failed:", response.status, response.statusText);
-      }
-    } catch (err) {
-      console.error("Unexpected error:", err);
+export default function Sidebar({ role, setActiveSection }: SidebarProps) {
+  const [IsAdmin, setIsAdmin] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (role === 1) {
+      setIsAdmin(true);
     }
-  };
+  }, [role]);
 
   return (
     <nav className="sidebar">
       <ul>
-        <li className="active">
-          <Link href={DASHBOARD_PAGES.PROFILE}>Profile</Link>
+        <li>
+          <button onClick={() => setActiveSection("profile")}>Profile</button>
         </li>
         <li>
-          <Link href={DASHBOARD_PAGES.PROFILE_DASHBOARD}>Dashboard</Link>
+          <button onClick={() => setActiveSection("dashboard")}>Dashboard</button>
         </li>
+        <li>
+          <button onClick={() => setActiveSection("favourites")}>Favourites</button>
+        </li>
+        {IsAdmin && (
+          <li>
+            <button onClick={() => setActiveSection("admin panel")}>Admin Dashboard</button>
+          </li>
+        )}
       </ul>
     </nav>
   );

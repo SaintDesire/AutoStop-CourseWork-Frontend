@@ -3,47 +3,93 @@
 import { Search, SlidersHorizontal, ChevronDown, X } from 'lucide-react';
 import { useState } from 'react';
 
-export default function SearchBar() {
-  const [condition, setCondition] = useState('');
-  const [make, setMake] = useState('');
-  const [model, setModel] = useState('');
-  const [price, setPrice] = useState('');
+interface FilterState {
+  condition: string;
+  make: string;
+  model: string;
+  price: string;
+  year: string;
+  bodyType: string;
+  fuelType: string;
+  transmission: string;
+}
+
+interface SearchBarProps {
+  onSearch: (filters: FilterState) => void;
+}
+
+export default function SearchBar({ onSearch }: SearchBarProps) {
+  const [filters, setFilters] = useState<FilterState>({
+    condition: '',
+    make: '',
+    model: '',
+    price: '',
+    year: '',
+    bodyType: '',
+    fuelType: '',
+    transmission: '',
+  });
+
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  // Additional filter states
-  const [year, setYear] = useState('');
-  const [bodyType, setBodyType] = useState('');
-  const [fuelType, setFuelType] = useState('');
-  const [transmission, setTransmission] = useState('');
+  const handleFilterChange = (key: keyof FilterState, value: string) => {
+    setFilters(prev => ({ ...prev, [key]: value }));
+  };
 
-  const [isConditionOpen, setIsConditionOpen] = useState(false);
-  const [isPriceOpen, setIsPriceOpen] = useState(false);
-  const [isBodyTypeOpen, setIsBodyTypeOpen] = useState(false);
-  const [isFuelTypeOpen, setIsFuelTypeOpen] = useState(false);
-  const [isTransmissionOpen, setIsTransmissionOpen] = useState(false);
+  const handleReset = () => {
+    setFilters({
+      condition: '',
+      make: '',
+      model: '',
+      price: '',
+      year: '',
+      bodyType: '',
+      fuelType: '',
+      transmission: '',
+    });
+    onSearch({
+      condition: '',
+      make: '',
+      model: '',
+      price: '',
+      year: '',
+      bodyType: '',
+      fuelType: '',
+      transmission: '',
+    });
+  };
+
+  const handleSearch = () => {
+    onSearch(filters);
+  };
+
+  const toggleDropdown = (dropdownName: string) => {
+    setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
+  };
 
   return (
     <div className="bg-[#0a0b14] p-4 flex flex-col items-center justify-center mb-8 mt-8">
       <div className={`flex flex-col w-full max-w-5xl transition-all duration-300 ease-in-out ${isFiltersOpen ? 'bg-white rounded-3xl p-6' : ''}`}>
-        <div className="flex items-center gap-2 bg-white rounded-full p-2 w-full">
+        <div className="flex flex-wrap items-center gap-2 bg-white rounded-full p-2 w-full">
           {/* Condition Dropdown */}
           <div className="relative">
             <button
               className="flex items-center justify-between w-[140px] px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
-              onClick={() => setIsConditionOpen(!isConditionOpen)}
+              onClick={() => toggleDropdown('condition')}
             >
-              <span>{condition || 'Condition'}</span>
+              <span>{filters.condition || 'Condition'}</span>
               <ChevronDown className="w-4 h-4 text-gray-500" />
             </button>
-            {isConditionOpen && (
+            {openDropdown === 'condition' && (
               <div className="absolute z-10 w-full mt-1 bg-white border rounded-md shadow-lg">
                 {['New', 'Used'].map((item) => (
                   <button
                     key={item}
                     className="block w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-50"
                     onClick={() => {
-                      setCondition(item);
-                      setIsConditionOpen(false);
+                      handleFilterChange('condition', item);
+                      setOpenDropdown(null);
                     }}
                   >
                     {item}
@@ -59,8 +105,8 @@ export default function SearchBar() {
           <div className="relative">
             <input
               type="text"
-              value={make}
-              onChange={(e) => setMake(e.target.value)}
+              value={filters.make}
+              onChange={(e) => handleFilterChange('make', e.target.value)}
               placeholder="Any Makes"
               className="w-[140px] px-3 py-2 text-sm text-gray-700 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -72,8 +118,8 @@ export default function SearchBar() {
           <div className="relative">
             <input
               type="text"
-              value={model}
-              onChange={(e) => setModel(e.target.value)}
+              value={filters.model}
+              onChange={(e) => handleFilterChange('model', e.target.value)}
               placeholder="Any Models"
               className="w-[140px] px-3 py-2 text-sm text-gray-700 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -85,20 +131,20 @@ export default function SearchBar() {
           <div className="relative">
             <button
               className="flex items-center justify-between w-[140px] px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
-              onClick={() => setIsPriceOpen(!isPriceOpen)}
+              onClick={() => toggleDropdown('price')}
             >
-              <span>{price || 'All Prices'}</span>
+              <span>{filters.price || 'All Prices'}</span>
               <ChevronDown className="w-4 h-4 text-gray-500" />
             </button>
-            {isPriceOpen && (
+            {openDropdown === 'price' && (
               <div className="absolute z-10 w-full mt-1 bg-white border rounded-md shadow-lg">
                 {['$0 - $10,000', '$10,000 - $20,000', '$20,000 - $30,000', '$30,000+'].map((item) => (
                   <button
                     key={item}
                     className="block w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-50"
                     onClick={() => {
-                      setPrice(item);
-                      setIsPriceOpen(false);
+                      handleFilterChange('price', item);
+                      setOpenDropdown(null);
                     }}
                   >
                     {item}
@@ -122,9 +168,19 @@ export default function SearchBar() {
             )}
             {isFiltersOpen ? 'Close Filters' : 'More Filters'}
           </button>
+          
+          <button
+            onClick={handleReset}
+            className="flex items-center px-4 py-2 ml-2 bg-red-600 hover:bg-red-700 text-white rounded-full"
+          >
+            Reset
+          </button>
 
           {/* Find Listing Button */}
-          <button className="ml-auto flex items-center px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full">
+          <button
+            onClick={handleSearch}
+            className="ml-auto flex items-center px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+          >
             <Search className="w-4 h-4 mr-2" />
             Find Listing
           </button>
@@ -138,20 +194,18 @@ export default function SearchBar() {
               <label className="block text-sm font-medium text-gray-700">Year</label>
               <input
                 type="number"
-                value={year}
-                onChange={(e) => setYear(e.target.value)}
+                value={filters.year}
+                onChange={(e) => handleFilterChange('year', e.target.value)}
                 onBlur={() => {
-                  const value = parseInt(year, 10);
+                  const value = parseInt(filters.year, 10);
                   if (!isNaN(value)) {
                     if (value < 1900) {
-                      setYear('1900');
+                      handleFilterChange('year', '1900');
                     } else if (value > 2025) {
-                      setYear('2025');
-                    } else {
-                      setYear(value.toString());
+                      handleFilterChange('year', '2025');
                     }
                   } else {
-                    setYear('');
+                    handleFilterChange('year', '');
                   }
                 }}
                 placeholder="Any Year"
@@ -165,20 +219,20 @@ export default function SearchBar() {
               <div className="relative">
                 <button
                   className="flex items-center justify-between w-full px-3 py-2 text-sm text-gray-700 border rounded-md hover:bg-gray-50"
-                  onClick={() => setIsBodyTypeOpen(!isBodyTypeOpen)}
+                  onClick={() => toggleDropdown('bodyType')}
                 >
-                  <span>{bodyType || 'Any Type'}</span>
+                  <span>{filters.bodyType || 'Any Type'}</span>
                   <ChevronDown className="w-4 h-4 text-gray-500" />
                 </button>
-                {isBodyTypeOpen && (
+                {openDropdown === 'bodyType' && (
                   <div className="absolute z-10 w-full mt-1 bg-white border rounded-md shadow-lg">
                     {['Sedan', 'SUV', 'Truck', 'Van', 'Coupe'].map((item) => (
                       <button
                         key={item}
                         className="block w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-50"
                         onClick={() => {
-                          setBodyType(item);
-                          setIsBodyTypeOpen(false);
+                          handleFilterChange('bodyType', item);
+                          setOpenDropdown(null);
                         }}
                       >
                         {item}
@@ -195,20 +249,20 @@ export default function SearchBar() {
               <div className="relative">
                 <button
                   className="flex items-center justify-between w-full px-3 py-2 text-sm text-gray-700 border rounded-md hover:bg-gray-50"
-                  onClick={() => setIsFuelTypeOpen(!isFuelTypeOpen)}
+                  onClick={() => toggleDropdown('fuelType')}
                 >
-                  <span>{fuelType || 'Any Fuel'}</span>
+                  <span>{filters.fuelType || 'Any Fuel'}</span>
                   <ChevronDown className="w-4 h-4 text-gray-500" />
                 </button>
-                {isFuelTypeOpen && (
+                {openDropdown === 'fuelType' && (
                   <div className="absolute z-10 w-full mt-1 bg-white border rounded-md shadow-lg">
                     {['Gasoline', 'Diesel', 'Electric', 'Hybrid'].map((item) => (
                       <button
                         key={item}
                         className="block w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-50"
                         onClick={() => {
-                          setFuelType(item);
-                          setIsFuelTypeOpen(false);
+                          handleFilterChange('fuelType', item);
+                          setOpenDropdown(null);
                         }}
                       >
                         {item}
@@ -225,20 +279,20 @@ export default function SearchBar() {
               <div className="relative">
                 <button
                   className="flex items-center justify-between w-full px-3 py-2 text-sm text-gray-700 border rounded-md hover:bg-gray-50"
-                  onClick={() => setIsTransmissionOpen(!isTransmissionOpen)}
+                  onClick={() => toggleDropdown('transmission')}
                 >
-                  <span>{transmission || 'Any Transmission'}</span>
+                  <span>{filters.transmission || 'Any Transmission'}</span>
                   <ChevronDown className="w-4 h-4 text-gray-500" />
                 </button>
-                {isTransmissionOpen && (
-                  <div className="absolute z-10 w-full mt-1 bg-white border rounded-md shadow-lg ">
-                    {['Automatic', 'Manual', 'CVT'].map((item) => (
+                {openDropdown === 'transmission' && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border rounded-md shadow-lg">
+                    {['Automatic', 'Manual'].map((item) => (
                       <button
                         key={item}
                         className="block w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-50"
                         onClick={() => {
-                          setTransmission(item);
-                          setIsTransmissionOpen(false);
+                          handleFilterChange('transmission', item);
+                          setOpenDropdown(null);
                         }}
                       >
                         {item}
@@ -254,3 +308,4 @@ export default function SearchBar() {
     </div>
   );
 }
+

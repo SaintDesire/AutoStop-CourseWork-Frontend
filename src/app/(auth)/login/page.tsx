@@ -84,12 +84,6 @@ const Login: React.FC = () => {
             marginBottom: "40px",
           }}
         >
-          <div>
-            <input type="checkbox" id="keep" />
-            <label htmlFor="keep" style={{ marginLeft: "10px" }}>
-              Keep me signed in
-            </label>
-          </div>
           <Link
             href="/"
             style={{ color: "#405FF2", textDecoration: "underline" }}

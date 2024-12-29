@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose';
 
-// Функция Middleware
+// Middleware для защиты маршрутов
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Защищаем только маршруты, начинающиеся с /profile
-  if (pathname.startsWith('/profile')) {
+  // Проверяем, защищаем ли текущий путь
+  if (pathname.startsWith('/profile') || pathname.startsWith('/marketplace/car/add')) {
     const token = req.cookies.get('token')?.value;
 
     // Если токен отсутствует, перенаправляем на страницу логина
@@ -19,7 +19,7 @@ export async function middleware(req: NextRequest) {
 
     try {
       const secret = new TextEncoder().encode(process.env.SECRET_KEY);
-      // Верификация токена
+      // Проверяем валидность токена
       await jwtVerify(token, secret);
       // Если токен валиден, продолжаем обработку запроса
       return NextResponse.next();
@@ -38,5 +38,5 @@ export async function middleware(req: NextRequest) {
 
 // Конфигурация Middleware
 export const config = {
-  matcher: ['/profile/:path*'], // Применяем Middleware только к /profile и его подмаршрутам
+  matcher: ['/profile/:path*', '/marketplace/car/add'], // Применяем Middleware для указанных маршрутов
 };

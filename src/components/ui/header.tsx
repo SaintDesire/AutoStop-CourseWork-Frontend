@@ -14,7 +14,6 @@ const initialNavigation = [
   { name: "Catalog", href: DASHBOARD_PAGES.CARLIST, current: false },
   { name: "Market", href: DASHBOARD_PAGES.MARKETPLACE, current: false },
   { name: "About", href: DASHBOARD_PAGES.ABOUT, current: false },
-  { name: "Contact", href: DASHBOARD_PAGES.CONTACT, current: false },
 ];
 
 interface UserData {
@@ -201,7 +200,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Отображение ошибки, если есть */}
+      <div id="isAuthorizedElement" style={{ display: "none" }}>
+        {isAuthenticated ? "true" : "false"}
+      </div>
+
       {error && (
         <div className="error-message">
           <p style={{ color: "red" }}>{error}</p>

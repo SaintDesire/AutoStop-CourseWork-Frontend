@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Share2, Heart, LayoutGrid } from 'lucide-react'
 import Layout from '@/components/ui/layout'
 
 interface CarDetails {
