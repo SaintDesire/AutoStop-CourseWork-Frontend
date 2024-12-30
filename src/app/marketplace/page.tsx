@@ -111,8 +111,81 @@ export default function MarketPage() {
   // Использование useMemo для фильтрации и сортировки автомобилей
   const filteredAndSortedCars = useMemo(() => {
     let filtered = [...cars];
-
-    // Применяем сортировку
+  
+    // 1) ФИЛЬТРАЦИЯ
+  
+    // Если выбрано состояние (condition)
+    if (condition) {
+      // Например, condition = 'New' или 'Used'
+      filtered = filtered.filter((car) =>
+        car.condition.toLowerCase() === condition.toLowerCase()
+      );
+    }
+  
+    // Если введён make
+    if (make) {
+      // Ищем в названии бренда
+      filtered = filtered.filter((car) =>
+        car.brand.toLowerCase().includes(make.toLowerCase())
+      );
+    }
+  
+    // Если введён model
+    if (model) {
+      filtered = filtered.filter((car) =>
+        car.model.toLowerCase().includes(model.toLowerCase())
+      );
+    }
+  
+    // Если выбрана цена (price), у вас там варианты вида "$0 - $10,000", "$30,000+", и т.п.
+    if (price) {
+      switch (price) {
+        case "$0 - $10,000":
+          filtered = filtered.filter((car) => car.price >= 0 && car.price <= 10000);
+          break;
+        case "$10,000 - $20,000":
+          filtered = filtered.filter((car) => car.price >= 10000 && car.price <= 20000);
+          break;
+        case "$20,000 - $30,000":
+          filtered = filtered.filter((car) => car.price >= 20000 && car.price <= 30000);
+          break;
+        case "$30,000+":
+          filtered = filtered.filter((car) => car.price >= 30000);
+          break;
+        default:
+          // если ничего не подходит или пустая строка
+          break;
+      }
+    }
+  
+    // Если пользователь указал год (year)
+    if (year && !isNaN(Number(year))) {
+      // Предположим, что вы хотите искать только точный год
+      filtered = filtered.filter((car) => car.year === Number(year));
+    }
+  
+    // Если выбран bodyType
+    if (bodyType) {
+      filtered = filtered.filter((car) =>
+        car.bodyType.toLowerCase() === bodyType.toLowerCase()
+      );
+    }
+  
+    // Если выбран fuelType
+    if (fuelType) {
+      filtered = filtered.filter((car) =>
+        car.fuelType.toLowerCase() === fuelType.toLowerCase()
+      );
+    }
+  
+    // Если выбрана transmission
+    if (transmission) {
+      filtered = filtered.filter((car) =>
+        car.transmission.toLowerCase() === transmission.toLowerCase()
+      );
+    }
+  
+    // 2) СОРТИРОВКА
     switch (sortBy) {
       case "Price: Low to High":
         filtered.sort((a, b) => a.price - b.price);
@@ -124,12 +197,23 @@ export default function MarketPage() {
         filtered.sort((a, b) => b.year - a.year);
         break;
       default:
-        // Default: исходный порядок
+        // Default: ничего не делаем, остаётся исходный порядок
         break;
     }
-
+  
     return filtered;
-  }, [cars, condition, make, model, price, year, bodyType, fuelType, transmission, sortBy]);
+  }, [
+    cars,
+    condition,
+    make,
+    model,
+    price,
+    year,
+    bodyType,
+    fuelType,
+    transmission,
+    sortBy,
+  ]);
 
   // Пагинация
   const indexOfLastCar = currentPage * carsPerPage;
